@@ -39,15 +39,16 @@ const NewLetter = () => {
 
   const viewHandler = (idx) => {
     setId(idx);
+    console.log(data[idx]);
   };
 
-  const folder = () => {
-    if (data) {
-      return (
-        <FolderLine viewHandler={viewHandler} contentsData={data && data} />
-      );
-    }
-  };
+  // const folder = () => {
+  //   if (data) {
+  //     return (
+  //       <FolderLine viewHandler={viewHandler} contentsData={data && data} />
+  //     );
+  //   }
+  // };
 
   // const contents = () => {
   //   if (!data) {
@@ -69,7 +70,7 @@ const NewLetter = () => {
   return (
     <Body>
       <OnSideBar />
-      {folder()}
+      <FolderLine viewHandler={viewHandler} contentsData={data && data} />
       <VscContain>
         <NewTabTab />
         {content ? (
