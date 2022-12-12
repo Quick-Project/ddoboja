@@ -22,6 +22,7 @@ const StyledButton = styled.button`
   background: #1a73e8;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
   :hover {
     background: blue;
   }
@@ -32,8 +33,6 @@ const StyledButton = styled.button`
 
 const Nav = () => {
   const { data: session } = useSession();
-
-  console.log(session);
   if (session) {
     return (
       <div className="header">
