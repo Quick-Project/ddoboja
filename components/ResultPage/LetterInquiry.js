@@ -1,24 +1,16 @@
 import React from 'react';
-import { letterData } from '../../states/index';
-import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
+import dayjs from 'dayjs';
 
-const loadLetterData = async (e) => {
-  let { data } = await axios.get(`api/letter/${receiver}`);
-  data = data.map((value) => value.name);
-  setLetter(data.filter((value) => value.includes(e.target.value)));
-};
+const LetterInquiry = ({ sender, title, content, date }) => {
+  const time = dayjs(date);
 
-// const [letter, setLetter] = useRecoilState(letterData);
-// console.log(letter);
-
-const LetterInquiry = ({ receiver, title, content, time }) => {
   return (
     <LetterContainer>
-      <LetterReceiver>{receiver}</LetterReceiver>
+      <LetterSender>{sender}</LetterSender>
       <LetterTitle>{title}</LetterTitle>
       <LetterContent>{content}</LetterContent>
-      <LetterTime>{time}</LetterTime>
+      <LetterTime>{time.format('YY.MM.DD')}</LetterTime>
     </LetterContainer>
   );
 };
@@ -26,27 +18,26 @@ const LetterInquiry = ({ receiver, title, content, time }) => {
 const LetterContainer = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 100%;
-  margin-right: 300px;
   margin-bottom: 0.5rem;
 `;
 
-const LetterReceiver = styled.div`
-  width: 7rem;
+const LetterSender = styled.div`
+  width: 9%;
   font-weight: bold;
 `;
 
 const LetterTitle = styled.div`
-  width: 15rem;
+  width: 15%;
 `;
 
 const LetterContent = styled.div`
-  width: 53rem;
-  margin-right: 1rem;
+  width: 63%;
 `;
 
 const LetterTime = styled.div`
-  width: 7rem;
+  width: 10%;
 `;
 
 export default LetterInquiry;
