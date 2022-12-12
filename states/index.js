@@ -33,3 +33,8 @@ export const pageMode = atom({
   default: { mode: 'light' },
   effects_UNSTABLE: [persistAtom],
 });
+
+export const letterData = atom({
+  key: 'letterData',
+  default: [],
+});

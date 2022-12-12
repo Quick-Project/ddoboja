@@ -1,24 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
+import LetterInquiry from './LetterInquiry';
+import { letterData } from '../../states/index';
+import { useRecoilValue } from 'recoil';
 
 const ResultPage = () => {
+  const letter = useRecoilValue(letterData);
+
   return (
     <Result_Container>
       <MainDiv>
-        <ResultDiv>
-          <div className="left">
-            <p className="tag">보낸사람</p>
-          </div>
-          <div className="mainLeft">
-            <p className="tag">제목</p>
-          </div>
-          <div className="main">
-            <p className="tag">내용</p>
-          </div>
-          <div className="main">
-            <p className="tag">제출시간</p>
-          </div>
-        </ResultDiv>
+        <CategoryContainer>
+          <div className="sender">보낸사람</div>
+          <div className="title">제목</div>
+          <div className="content">내용</div>
+          <div className="date">제출시간</div>
+        </CategoryContainer>
+        {letter.length > 0 &&
+          letter.map((data) => (
+            <LetterInquiry
+              sender={data.sender}
+              title={data.title}
+              content={data.content}
+              date={data.date}
+              key={data.id}
+            />
+          ))}
       </MainDiv>
     </Result_Container>
   );
@@ -30,32 +37,36 @@ const Result_Container = styled.div`
   height: 100vh;
   width: 70vw;
   min-height: 600px;
+  margin-left: 245px;
 `;
 
 const MainDiv = styled.div`
   display: flex;
   background: white;
   height: 100vh;
+  flex-direction: column;
 `;
 
-const ResultDiv = styled.div`
+const CategoryContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 50vw;
-  & .left {
-    padding-left: 230px;
-    padding-top: 30px;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 4px;
+  margin-bottom: 0.5rem;
+  color: #70757a;
+
+  & .sender {
+    width: 9%;
   }
-  & .main {
-    padding-top: 30px;
-    padding-left: 20%;
+  & .title {
+    width: 15%;
   }
-  & .mainLeft {
-    padding-left: 30%;
-    padding-top: 30px;
+  & .content {
+    width: 63%;
   }
-  & .tag {
-    width: 600%;
+  & .date {
+    width: 10%;
   }
 `;
 

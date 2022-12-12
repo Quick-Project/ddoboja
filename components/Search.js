@@ -1,7 +1,9 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import axios from 'axios';
+import { letterData } from '../states';
+import { useSetRecoilState } from 'recoil';
 
 const SearchBox = styled.div`
   flex: 1;
@@ -124,6 +126,7 @@ const Search = () => {
   const [hasText, setHasText] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [userResult, setUserResult] = useState([]);
+  const setLetter = useSetRecoilState(letterData);
 
   useEffect(() => {
     if (inputValue === '') {
@@ -141,10 +144,21 @@ const Search = () => {
 
   const nameClick = (clickedOption) => {
     setInputValue(clickedOption);
+    callLetterData();
     setUserResult([clickedOption]);
   };
 
   const router = useRouter();
+
+  const callLetterData = async (e) => {
+    try {
+      const data = await axios.get(`api/letter/${inputValue}`);
+      setLetter(data.data);
+      router.push('/resultpage');
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div>
@@ -169,7 +183,8 @@ const Search = () => {
               value={inputValue}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
-                  router.push('/resultpage');
+                  // router.push('/resultpage');
+                  callLetterData();
                 }
               }}
             ></input>
