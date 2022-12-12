@@ -13,8 +13,9 @@ const Contain = styled.div`
   flex-direction: column;
   border-right: 1px solid black;
   width: 200px;
-  height: 100vh;
+  height: 100%;
   margin-left: 40px;
+  overflow: auto;
 `;
 const Head = styled.div`
   display: flex;
@@ -48,6 +49,7 @@ const FolderContain = styled.div`
 `;
 const HeadText = styled.div`
   font-size: 13px;
+  color: white;
 `;
 const MainText = styled.div`
   margin-left: 10px;
