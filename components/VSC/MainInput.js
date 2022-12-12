@@ -36,7 +36,7 @@ const NumbersList = styled.li`
 
 const WorkContainer = styled.div`
   width: 900px;
-  padding-top: 3px;
+  padding-top: 18px;
   display: flex;
   flex-direction: column;
 `;
@@ -51,43 +51,33 @@ const CodeContainer = styled.div`
 const UserInput = styled.div`
   width: auto;
   margin-bottom: ${({ mb }) => mb || '3px'};
+  color: #ffd400;
   border: 0;
   display: block;
-  color: white;
+  /* color: white; */
   padding-left: 13px;
-  font-size: 13px;
+  font-size: 16px;
+  font-weight: 600;
   padding-right: 13px;
   resize: none;
   width: ${({ width }) => width};
-  &::placeholder {
-    content: attr(placeholder);
-    color: #ff7035;
-    font-size: 13px;
-  }
 `;
 const UserTextArea = styled.div`
   width: 700px;
   margin-bottom: ${({ mb }) => mb || '3px'};
   border: 0;
-  display: block;
-  color: white;
+  display: flex;
+  flex-direction: row;
+  color: #ffd400;
   font-size: 17px;
   padding-top: 2px;
   padding-left: 5px;
   resize: none;
   height: 66px;
   background-color: #1e1e1e;
-  align-self: flex-start;
   opacity: 0.8;
   width: ${({ width }) => width};
   border-radius: 3px;
-  &::placeholder {
-    content: attr(placeholder);
-    color: #ff7035;
-    font-size: 15px;
-    padding-left: 3px;
-    padding-top: 1px;
-  }
 `;
 const Code = styled.div`
   display: flex;
@@ -185,7 +175,7 @@ const MainInput = ({ data }) => {
             <Code margin={'3px'} marginL={'3px'}>
               = (
             </Code>
-            <Code color={'white'} margin={'0px'} mb={'3px'}>
+            <Code color={'red'} margin={'0px'} mb={'3px'}>
               e
             </Code>
             <Code marginL={'3px'}>) =&gt; {`{`}</Code>
@@ -205,9 +195,9 @@ const MainInput = ({ data }) => {
             <Code color={'#DAA1D6'} marginL={'80px'}>
               const{' '}
             </Code>
-            <Code color={'white'}>sendDate</Code>
-            <Code margin={'3px'} ls={'1px'}>
-              = {inputValue.date}
+            <Code color={'white'}>sendDate =</Code>
+            <Code color={'#ffd400'} margin={'3px'} ls={'1px'}>
+              {inputValue.date}
             </Code>
           </CodeContainer>
           <CodeContainer>
@@ -219,7 +209,7 @@ const MainInput = ({ data }) => {
               = [
             </Code>
 
-            <Code margin={'2px'} ls={'1px'} color={'#a83636'}>
+            <Code margin={'2px'} ls={'1px'} color={'#ffd400'}>
               {/* 작성자 이름 */}
               {inputValue.sender}
             </Code>
@@ -228,35 +218,38 @@ const MainInput = ({ data }) => {
             </Code>
           </CodeContainer>
           <CodeContainer>
-            <Code color={'#69b0a9'} marginL={'80px'} margin={'0px'}>
+            <Code color={'#006699'} marginL={'80px'} margin={'0px'}>
               return
             </Code>
-            <Code color={'#FF7035'} marginL={'0px'} margin={'0px'}>
+            <Code color={'#2E6A4D'} marginL={'0px'} margin={'0px'}>
               `${`{`}
             </Code>
-            <Code color={'#006699'} marginL={'0px'} margin={'0px'}>
+            <Code color={'#ff5500'} marginL={'0px'} margin={'0px'}>
               writer
             </Code>
-            <Code color={'#FF7035'} marginL={'0px'} margin={'5px'}>
+            <Code color={'#2E6A4D'} marginL={'0px'} margin={'5px'}>
               {`}`}
             </Code>
-            <Code color={'#FF7035'} marginL={'0px'} margin={'0px'}>
+            <Code color={'#2E6A4D'} marginL={'0px'} margin={'0px'}>
               ${`{`}
             </Code>
-            <Code color={'#006699'} marginL={'0px'} margin={'0px'}>
+            <Code color={'#ff5500'} marginL={'0px'} margin={'0px'}>
               title
             </Code>
-            <Code color={'#FF7035'} marginL={'0px'} margin={'5px'}>
+            <Code color={'#2E6A4D'} marginL={'0px'} margin={'5px'}>
               {`}`}
             </Code>
-            <Code color={'#FF7035'} marginL={'0px'} margin={'0px'}>
+            <Code color={'#2E6A4D'} marginL={'0px'} margin={'0px'}>
               ${`{`}
             </Code>
-            <Code color={'#006699'} marginL={'0px'} margin={'0px'}>
+            <Code color={'#ff5500'} marginL={'0px'} margin={'0px'}>
               contents
             </Code>
-            <Code color={'#FF7035'} marginL={'0px'} margin={'0px'}>
+            <Code color={'#2E6A4D'} marginL={'0px'} margin={'0px'}>
               {`}`}
+            </Code>
+            <Code color={'#2E6A4D'} marginL={'0px'} margin={'0px'}>
+              {'`'}
             </Code>
           </CodeContainer>
           <CodeContainer>
