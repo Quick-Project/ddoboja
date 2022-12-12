@@ -21,6 +21,10 @@ const LetterContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-bottom: 0.5rem;
+  color: black;
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
 `;
 
 const LetterSender = styled.div`

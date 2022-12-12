@@ -99,6 +99,7 @@ const SearchResult = styled.ul`
   max-width: 584px;
   box-shadow: 0px 3px 10px -1px rgb(32 33 36 / 30%);
   padding: 0px 0px 20px 0px;
+  color: black;
 
   :before {
     content: '';

@@ -42,7 +42,6 @@ const Result_Container = styled.div`
 
 const MainDiv = styled.div`
   display: flex;
-  background: white;
   height: 100vh;
   flex-direction: column;
 `;
