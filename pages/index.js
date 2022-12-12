@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Nav from '../components/Nav.js';
-import Render from '../components/Render.js';
+import Nav from '../components/Main/Nav.js';
+import Render from '../components/Main/Render.js';
 import { useSession, signIn, signOut, getSession } from 'next-auth/react';
 import { useRecoilState } from 'recoil';
 import { currentUser } from '../states/index.js';

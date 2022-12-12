@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import Image from 'next/image';
-import github from './../icon/github.png';
+import github from './../../icon/github.png';
 
 const Wrapper = styled.div`
   display: flex;
