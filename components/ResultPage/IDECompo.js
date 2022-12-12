@@ -179,7 +179,7 @@ const ResultPageCard = () => {
         </SecondContainer>
         <ThridContainer>
           <ThridText>
-            코딩메일서비스를 찾는다면? 개발자를 위한 책임있는 예약 메일 시스템!
+            롤링페이퍼를 찾는다면? 개발자를 위한 롤링페이퍼 조회 시스템!
             VSCodestates를 소개합니다.
           </ThridText>
           <span> </span>
@@ -225,8 +225,8 @@ const ResultPageCard = () => {
         </SecondContainer>
         <ThridContainer>
           <ThridText>
-            코드 중심의 메일 시스템. 프로게이머스의 개발자 맞춤형 메일로 함께한
-            동기들에게 메세지를 보내보세요.
+            코드 중심의 롤링페이퍼 시스템. 프로게이머스의 개발자 맞춤형
+            롤링페이퍼로 함께한 동기들에게 메세지를 남겨보세요.
           </ThridText>
           <span> </span>
         </ThridContainer>
