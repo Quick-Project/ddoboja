@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { InputValue } from '../../states';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { currentUser } from '../../states';
+import useGetname from '../hook/useGetname';
+import useGetTyping from '../hook/useGetTyping';
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  height: 100%;
 `;
 
 const NumberContainer = styled.ul`
@@ -12,11 +16,9 @@ const NumberContainer = styled.ul`
   flex-direction: column;
   align-items: flex-end;
   text-align: right;
-  background-color: #1e1e1e;
+  background-color: #f7f7f7;
   padding-top: 3px;
   padding-bottom: 3px;
-  padding-left: 10px;
-  padding-right: 20px;
   border-right: 1px solid #999999;
 `;
 
@@ -34,12 +36,24 @@ const NumbersList = styled.li`
   align-items: center;
 `;
 
+const SourcecodeContainer = styled.div`
+  font-weight: 600;
+  margin-right: 30px;
+  width: 82px;
+  margin-top: 5px;
+  font-size: 13px;
+  height: 25px;
+  text-align: right;
+  width: 100%;
+`;
+
 const WorkContainer = styled.div`
   width: 900px;
   padding-top: 3px;
   display: flex;
   flex-direction: column;
 `;
+
 const CodeContainer = styled.div`
   padding-left: 5px;
   width: 100%;
@@ -48,51 +62,54 @@ const CodeContainer = styled.div`
   margin-bottom: ${({ mb }) => mb || '0px'};
   align-items: center;
 `;
+
 const UserInput = styled.input`
   width: auto;
   margin-bottom: ${({ mb }) => mb || '3px'};
   border: 0;
   display: block;
-  color: white;
-  padding-left: 13px;
+  color: #a83636;
+  padding-left: 3px;
   font-size: 13px;
-  padding-right: 13px;
-  resize: none;
+  padding-left: 3px;
+  padding-right: 3px;
   width: ${({ width }) => width};
   &::placeholder {
     content: attr(placeholder);
-    color: #ff7035;
+    color: #a83636;
     font-size: 13px;
   }
 `;
+
 const UserTextArea = styled.textarea`
   width: 700px;
   margin-bottom: ${({ mb }) => mb || '3px'};
   border: 0;
   display: block;
-  color: white;
-  font-size: 17px;
+  color: #a83636;
+  font-size: 15px;
   padding-top: 2px;
   padding-left: 5px;
   resize: none;
   height: 66px;
-  background-color: #1e1e1e;
+  background-color: #eee;
   align-self: flex-start;
   opacity: 0.8;
   width: ${({ width }) => width};
   border-radius: 3px;
   &::placeholder {
     content: attr(placeholder);
-    color: #ff7035;
+    color: #a83636;
     font-size: 15px;
     padding-left: 3px;
     padding-top: 1px;
   }
 `;
+
 const Code = styled.div`
   display: flex;
   align-items: center;
-  color: ${({ color }) => color || 'white'};
+  color: ${({ color }) => color || '#000000'};
   font-weight: 600;
   margin-right: ${({ margin }) => margin || '10px'};
   margin-left: ${({ marginL }) => marginL || '0'};
@@ -102,52 +119,67 @@ const Code = styled.div`
   width: ${({ width }) => width};
 `;
 
-const MainInput = () => {
-  const [inputValue, setInputValue] = useState({
-    reciever: '',
-    title: '',
-    content: '',
-  });
+export default function WriterContainer() {
+  // 현재 유저 받아오는 훅
+  const currentUsername = useGetname();
+  const [inputValue, onValue] = useGetTyping();
+  // console.log(currentUsername);
+  const [size, setSize] = useState(23);
+  const [titleSize, setTitlesize] = useState(17);
 
-  const onValue = (e) => {
-    setInputValue({
-      ...inputValue,
-      [e.target.name]: e.target.value,
-    });
-  };
+  useEffect(() => {
+    if (inputValue.title === '') {
+      setTitlesize(17);
+    } else {
+      setTitlesize(inputValue.title.length * 1.5 + 4);
+    }
+
+    if (inputValue.reciever === '') {
+      setSize(23);
+    } else {
+      setSize(inputValue.reciever.length * 1.8);
+    }
+  }, [inputValue]);
 
   return (
     <Container>
+      <SourcecodeContainer>소스 코드</SourcecodeContainer>
       <NumberContainer>
         {new Array(16)
           .fill(0)
-          .map((x, idx) => idx + 1)
+          .map((x, idx) => idx)
           .map((num) => (
             <NumbersList key={num}>{num}</NumbersList>
           ))}
       </NumberContainer>
       <WorkContainer>
         <CodeContainer>
-          <Code color={'#82D3F0'}>import </Code>
-          <Code color={'white'}>React</Code>
-          <Code color={'#82D3F0'}>from </Code>
-          <Code color={'#82D3F0'}>&apos;</Code>
-          <Code color={'#2E6A4D'}>react</Code>
-          <Code color={'#82D3F0'}>&apos;</Code>
+          <Code color={'#006699'}>const </Code>
+          <Code color={'#808080'}>fs</Code>
+          <Code margin={'3px'}>= require( </Code>
+          <Code margin={'2px'} color={'#A83636'}>
+            {`"fs"`}
+          </Code>
+          <Code> )</Code>
         </CodeContainer>
 
         <CodeContainer>
-          <Code color={'#82D3F0'}>import </Code>
-          <Code color={'white'}>Styled</Code>
-          <Code color={'#82D3F0'}>from</Code>
-          <Code color={'#82D3F0'}>&apos;</Code>
-          <Code color={'#2E6A4D'}>styled-components</Code>
-          <Code color={'#82D3F0'}>&apos;</Code>
+          <Code color={'#006699'}>const </Code>
+          <Code color={'#808080'}>input</Code>
+          <Code margin={'3px'}>= fs.readFileSync(</Code>
+          <Code margin={'2px'} color={'#A83636'}>
+            {`"/dev/stdin"`}
+          </Code>
+          <Code margin={'0px'}> ).toString().trim().split(</Code>
+          <Code margin={'2px'} color={'#A83636'}>
+            {`"\n"`}
+          </Code>
+          <Code margin={'0px'}>)</Code>
         </CodeContainer>
 
         <CodeContainer>
           <Code color={'#006699'}>function </Code>
-          <Code color={'white'} margin={'0px'}>
+          <Code color={'#808080'} margin={'0px'}>
             FE40Letter
           </Code>
           <Code margin={'3px'} marginL={'2px'} ls={'2px'}>
@@ -158,10 +190,10 @@ const MainInput = () => {
         {/* 여기서 인풋에 DB상태 넣어줄것 작성자*/}
 
         <CodeContainer>
-          <Code color={'#DAA1D6'} marginL={'30px'}>
+          <Code color={'#006699'} marginL={'30px'}>
             const
           </Code>
-          <Code color={'white'} margin={'0px'}>
+          <Code color={'#808080'} margin={'0px'}>
             reciever
           </Code>
           <Code margin={'3px'}> = [</Code>
@@ -170,11 +202,11 @@ const MainInput = () => {
             <UserInput
               type={'text'}
               placeholder={'받는 분의 이름을 입력하세요.'}
-              size={inputValue.reciever ? inputValue.reciever.length * 1.8 : 22}
+              size={size}
               name="reciever"
               value={inputValue.reciever}
               onChange={(e) => onValue(e)}
-              mb={'0px'}
+              mb={'1px'}
             />
           </div>
           <Code marginL={'5px'}>]</Code>
@@ -182,22 +214,18 @@ const MainInput = () => {
 
         {/* 제목 작성하기 */}
         <CodeContainer>
-          <Code color={'#DAA1D6'} marginL={'30px'}>
+          <Code color={'#006699'} marginL={'30px'}>
             const
           </Code>
-          <Code color={'white'} margin={'0px'}>
-            title
+          <Code color={'#808080'} margin={'0px'}>
+            Title
           </Code>
-          <Code margin={'3px'}> = [</Code>
+          <Code margin={'1px'}> = [</Code>
 
           <UserInput
             type={'text'}
             placeholder={'제목을 입력해주세요.'}
-            size={
-              inputValue.title.length < 9
-                ? 16
-                : inputValue.title.length * 1.5 + 4
-            }
+            size={titleSize}
             name="title"
             value={inputValue.title}
             onChange={(e) => onValue(e)}
@@ -208,19 +236,22 @@ const MainInput = () => {
         </CodeContainer>
 
         <CodeContainer>
-          <Code color={'#DAA1D6'} marginL={'80px'}>
+          <Code color={'#006699'} marginL={'80px'}>
             const
           </Code>
-          <Code color={'white'} margin={'0px'}>
+          <Code color={'#808080'} margin={'0px'}>
             contents
           </Code>
           <Code margin={'3px'} marginL={'3px'}>
+            {' '}
             = (
           </Code>
-          <Code color={'white'} margin={'0px'} mb={'3px'}>
+          <Code color={'#808080'} margin={'0px'} mb={'3px'}>
             e
           </Code>
-          <Code marginL={'3px'}>) =&gt; {`{`}</Code>
+          <Code marginL={'3px'}>
+            ) {'=>'} {`{`}
+          </Code>
         </CodeContainer>
 
         <CodeContainer h={'72px'} mb={'2px'}>
@@ -239,33 +270,33 @@ const MainInput = () => {
           </Code>
         </CodeContainer>
         <CodeContainer>
-          <Code color={'#DAA1D6'} marginL={'80px'}>
+          <Code color={'#006699'} marginL={'80px'}>
             const{' '}
           </Code>
-          <Code color={'white'}>today</Code>
+          <Code color={'#808080'}>today</Code>
           <Code margin={'3px'} ls={'1px'}>
-            = {`{ new Date( ) }`}
+            = {`{new Date( )}`}{' '}
           </Code>
         </CodeContainer>
         <CodeContainer>
-          <Code color={'#DAA1D6'} marginL={'80px'}>
+          <Code color={'#006699'} marginL={'80px'}>
             const{' '}
           </Code>
-          <Code color={'white'}>writer</Code>
+          <Code color={'#808080'}>writer</Code>
           <Code margin={'2px'} ls={'1px'}>
             = [
           </Code>
 
           <Code margin={'2px'} ls={'1px'} color={'#a83636'}>
             {/* 현재 유저 이름 적을것 */}
-            {'DATA'}
+            {currentUsername}
           </Code>
           <Code margin={'2px'} ls={'1px'}>
             ]
           </Code>
         </CodeContainer>
         <CodeContainer>
-          <Code color={'#69b0a9'} marginL={'80px'} margin={'0px'}>
+          <Code color={'#006699'} marginL={'80px'} margin={'0px'}>
             return
           </Code>
           <Code color={'#FF7035'} marginL={'0px'} margin={'0px'}>
@@ -301,10 +332,9 @@ const MainInput = () => {
         </CodeContainer>
         <CodeContainer></CodeContainer>
         <CodeContainer>
-          <Code marginL={'5px'} ls={'1px'}>{`FE40Letter()`}</Code>
+          <Code marginL={'5px'} ls={'1px'}>{`console.log(FE40Letter())`}</Code>
         </CodeContainer>
       </WorkContainer>
     </Container>
   );
-};
-export default MainInput;
+}
