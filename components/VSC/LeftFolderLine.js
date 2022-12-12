@@ -68,16 +68,17 @@ const FolderLine = ({ viewHandler, contentsData }) => {
         <Folder src={folder} width={15} height={20} />
         <Text>Goodbye_FE_40th</Text>
       </MainContain>
-      {contentsData.map((el, idx) => {
-        return (
-          <div key={idx}>
-            <FolderContain onClick={viewHandler}>
-              <JSLogo src={jsLogo} width={15} height={15} />
-              <MainText> {`${el.title}.js`}</MainText>
-            </FolderContain>
-          </div>
-        );
-      })}
+      {contentsData &&
+        contentsData.map((el, idx) => {
+          return (
+            <div key={idx}>
+              <FolderContain onClick={() => viewHandler(idx)}>
+                <JSLogo src={jsLogo} width={15} height={15} />
+                <MainText> {`${el.title}.js`}</MainText>
+              </FolderContain>
+            </div>
+          );
+        })}
       <FolderContain>
         <CSS src={cssLogo} width={15} height={15} />
         <Text>{`고생한_동기들에게 .css`}</Text>

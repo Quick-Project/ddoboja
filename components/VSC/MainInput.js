@@ -107,8 +107,17 @@ const MainInput = ({ data }) => {
     title: data.title,
     content: data.content,
     sender: data.sender,
-    date: data.date,
+    date: data.date.toLocaleString('ko-KR'),
   });
+
+  useEffect(() => {
+    setInputValue({
+      title: data.title,
+      content: data.content,
+      sender: data.sender,
+      date: data.date.toLocaleString('ko-KR'),
+    });
+  }, [data]);
 
   if (inputValue) {
     return (
