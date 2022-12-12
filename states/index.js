@@ -36,9 +36,5 @@ export const pageMode = atom({
 
 export const letterData = atom({
   key: 'letterData',
-  default: {
-    receiver: '',
-    title: '',
-    content: '',
-  },
+  default: [],
 });
