@@ -51,7 +51,11 @@ const NewLetter = () => {
   return (
     <Body>
       <OnSideBar />
-      <FolderLine viewHandler={viewHandler} contentsData={data && data} />
+      <FolderLine
+        viewHandler={viewHandler}
+        contentsData={data && data}
+        id={id}
+      />
       <VscContain>
         <NewTabTab />
         {content ? (
