@@ -72,7 +72,7 @@ const FolderLine = ({ viewHandler, contentsData, id }) => {
         <Text>Goodbye_FE_40th</Text>
       </MainContain>
       {contentsData.map((el, idx) => {
-        return el.id === id ? (
+        return idx === id ? (
           <div key={idx}>
             <FolderContain onClick={() => viewHandler(idx)}>
               <JSLogo src={jsLogo} width={15} height={15} />
