@@ -107,7 +107,7 @@ const MainInput = ({ data }) => {
     title: data.title,
     content: data.content,
     sender: data.sender,
-    date: data.date.toLocaleString('ko-KR'),
+    date: `"${new Date(data.date).toDateString()}"`,
   });
 
   useEffect(() => {
@@ -115,7 +115,7 @@ const MainInput = ({ data }) => {
       title: data.title,
       content: data.content,
       sender: data.sender,
-      date: data.date.toLocaleString('ko-KR'),
+      date: `"${new Date(data.date).toDateString()}"`,
     });
   }, [data]);
 
