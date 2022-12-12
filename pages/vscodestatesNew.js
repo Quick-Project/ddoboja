@@ -42,25 +42,6 @@ const NewLetter = () => {
     console.log(data[idx]);
   };
 
-  // const folder = () => {
-  //   if (data) {
-  //     return (
-  //       <FolderLine viewHandler={viewHandler} contentsData={data && data} />
-  //     );
-  //   }
-  // };
-
-  // const contents = () => {
-  //   if (!data) {
-  //     return <div>편지를 기다리고 있어요!</div>;
-  //   }
-  //   if (content) {
-  //     return <MainInput data={content && content} />;
-  //   } else {
-  //     return <div>편지를 기다리고 있어요!</div>;
-  //   }
-  // };
-
   useEffect(() => {
     if (data) {
       setContent(data[id]);

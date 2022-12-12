@@ -42,6 +42,9 @@ const FolderContain = styled.div`
   margin-bottom: 5px;
   margin-top: 5px;
   align-items: center;
+  :hover {
+    cursor: pointer;
+  }
 `;
 const HeadText = styled.div`
   font-size: 13px;
@@ -57,7 +60,7 @@ const Text = styled.div`
   color: rgb(142, 142, 142);
 `;
 
-const FolderLine = ({ viewHandler, contentsData }) => {
+const FolderLine = ({ viewHandler, contentsData, id }) => {
   return (
     <Contain>
       <Head>
@@ -68,17 +71,23 @@ const FolderLine = ({ viewHandler, contentsData }) => {
         <Folder src={folder} width={15} height={20} />
         <Text>Goodbye_FE_40th</Text>
       </MainContain>
-      {contentsData &&
-        contentsData.map((el, idx) => {
-          return (
-            <div key={idx}>
-              <FolderContain onClick={() => viewHandler(idx)}>
-                <JSLogo src={jsLogo} width={15} height={15} />
-                <MainText> {`${el.title}.js`}</MainText>
-              </FolderContain>
-            </div>
-          );
-        })}
+      {contentsData.map((el, idx) => {
+        return el.id === id ? (
+          <div key={idx}>
+            <FolderContain onClick={() => viewHandler(idx)}>
+              <JSLogo src={jsLogo} width={15} height={15} />
+              <MainText> {`${el.title}.js`}</MainText>
+            </FolderContain>
+          </div>
+        ) : (
+          <div key={idx}>
+            <FolderContain onClick={() => viewHandler(idx)}>
+              <JSLogo src={jsLogo} width={15} height={15} />
+              <Text> {`${el.title}.js`}</Text>
+            </FolderContain>
+          </div>
+        );
+      })}
       <FolderContain>
         <CSS src={cssLogo} width={15} height={15} />
         <Text>{`고생한_동기들에게 .css`}</Text>
