@@ -44,7 +44,11 @@ const NewLetter = () => {
   const folder = () => {
     if (data) {
       return (
-        <FolderLine viewHandler={viewHandler} contentsData={data && data} />
+        <FolderLine
+          viewHandler={viewHandler}
+          contentsData={data && data}
+          id={id}
+        />
       );
     }
   };
