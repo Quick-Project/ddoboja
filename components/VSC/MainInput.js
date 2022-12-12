@@ -104,7 +104,7 @@ const Code = styled.div`
 
 const MainInput = () => {
   const [inputValue, setInputValue] = useState({
-    reciver: '',
+    reciever: '',
     title: '',
     content: '',
   });
@@ -162,7 +162,7 @@ const MainInput = () => {
             const
           </Code>
           <Code color={'white'} margin={'0px'}>
-            reciver
+            reciever
           </Code>
           <Code margin={'3px'}> = [</Code>
           <div>
@@ -170,9 +170,9 @@ const MainInput = () => {
             <UserInput
               type={'text'}
               placeholder={'받는 분의 이름을 입력하세요.'}
-              size={inputValue.reciver ? inputValue.reciver.length * 1.8 : 22}
-              name="reciver"
-              value={inputValue.reciver}
+              size={inputValue.reciever ? inputValue.reciever.length * 1.8 : 22}
+              name="reciever"
+              value={inputValue.reciever}
               onChange={(e) => onValue(e)}
               mb={'0px'}
             />

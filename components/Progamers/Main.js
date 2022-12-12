@@ -112,7 +112,7 @@ const Progamers_Main = () => {
               <span className="yellow"> const FE40Letter( ) &#123; </span>
               <p className="oneTab">
                 <span className="purple"> const </span>
-                <span className="yellow"> receiver </span> = [
+                <span className="yellow"> reciever </span> = [
                 <Input
                   width={'200px'}
                   placeholder="'받을 사람의 이름을 적어주세요'"
