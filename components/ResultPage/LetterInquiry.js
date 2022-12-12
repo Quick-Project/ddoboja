@@ -12,27 +12,41 @@ const loadLetterData = async (e) => {
 // const [letter, setLetter] = useRecoilState(letterData);
 // console.log(letter);
 
-const LetterInquiry = ({ receiver, title, content }) => {
+const LetterInquiry = ({ receiver, title, content, time }) => {
   return (
     <LetterContainer>
-      <letterReceiver>{receiver}</letterReceiver>
-      <letterTitle>{title}</letterTitle>
-      <letterContent>{content}</letterContent>
+      <LetterReceiver>{receiver}</LetterReceiver>
+      <LetterTitle>{title}</LetterTitle>
+      <LetterContent>{content}</LetterContent>
+      <LetterTime>{time}</LetterTime>
     </LetterContainer>
   );
 };
 
 const LetterContainer = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: row;
+  width: 100%;
+  margin-right: 300px;
+  margin-bottom: 0.5rem;
 `;
 
-const letterReceiver = styled.div``;
+const LetterReceiver = styled.div`
+  width: 7rem;
+  font-weight: bold;
+`;
 
-const letterTitle = styled.div``;
+const LetterTitle = styled.div`
+  width: 15rem;
+`;
 
-const letterContent = styled.div``;
+const LetterContent = styled.div`
+  width: 53rem;
+  margin-right: 1rem;
+`;
+
+const LetterTime = styled.div`
+  width: 7rem;
+`;
 
 export default LetterInquiry;
