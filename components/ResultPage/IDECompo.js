@@ -146,7 +146,7 @@ const ResultPageCard = () => {
         </ThridContainer>
       </CardContainer>
       <CardContainer>
-        <Link href="/maekjoo">
+        <Link href="/vscodestates">
           <ImgContainer>
             <Pic alt="Ddoboja" style={{ margin: '2px' }} src={Ddoboja}></Pic>
             <img
@@ -163,7 +163,7 @@ const ResultPageCard = () => {
             </div>
           </div>
           <div>
-            <Link href="/maekjoo">
+            <Link href="/vscodestates">
               <Svg
                 height="24px"
                 width="24px"
