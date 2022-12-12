@@ -1,9 +1,11 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
-import axios from 'axios';
 import { letterData } from '../states';
 import { useSetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
+import { currentUser } from '../states';
 
 const SearchBox = styled.div`
   flex: 1;
@@ -128,6 +130,7 @@ const Search = () => {
   const [inputValue, setInputValue] = useState('');
   const [userResult, setUserResult] = useState([]);
   const setLetter = useSetRecoilState(letterData);
+  const { name: currentName } = useRecoilValue(currentUser);
 
   useEffect(() => {
     if (inputValue === '') {
@@ -150,6 +153,27 @@ const Search = () => {
   };
 
   const router = useRouter();
+
+  const nameCheck = (searchName) => {
+    if (searchName === currentName) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const searchFunc = async (e) => {
+    if (e.key === 'Enter') {
+      const checkName = nameCheck(inputValue);
+      if (checkName) {
+        await callLetterData();
+      } else {
+        alert('편지 내용은 본인 이름만 검색 가능합니다.');
+        setInputValue('');
+        return;
+      }
+    }
+  };
 
   const callLetterData = async (e) => {
     try {
@@ -182,12 +206,7 @@ const Search = () => {
               placeholder="이름 검색"
               onChange={handleInputChange}
               value={inputValue}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  // router.push('/resultpage');
-                  callLetterData();
-                }
-              }}
+              onKeyDown={(e) => searchFunc(e)}
             ></input>
           </SearchInput>
         </SearchBox>
