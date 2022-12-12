@@ -50,6 +50,7 @@ const CheckboxContainer = styled.div`
   justify-content: center;
   align-items: flex-end;
   margin: 10px;
+  margin-bottom: 50px;
   color: rgb(142, 142, 142);
 `;
 
@@ -89,9 +90,6 @@ const VSC = () => {
               : '별🌟은 눌러 주셨나요?'}
           </Label>
         </CheckboxContainer>
-        {/* 
-      <WriteSpace />
-    <TerminalSpace /> */}
         <BottomLine />
       </VscContain>
       <RightBoxes />

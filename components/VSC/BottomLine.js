@@ -8,8 +8,12 @@ const StatusLine = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 40px;
+  height: 20px;
   overflow: hidden;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding-right: 250px;
 `;
 
 const LineKeeper = styled.div`
