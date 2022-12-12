@@ -5,6 +5,7 @@ import BottomLine from '../components/VSC/BottomLine';
 import FolderLine from '../components/VSC/LeftFolderLine';
 import MainInput from '../components/VSC/MainInput';
 import NewTabTab from '../components/VSC/NewLetterTab';
+import ButtonCP from '../components/VSC/Button';
 import axios from 'axios';
 
 const Body = styled.div`
@@ -22,6 +23,7 @@ const VscContain = styled.div`
 
 const WelcomeText = styled.div`
   margin: 76px 0 0 10px;
+  color: white;
 `;
 
 const NewLetter = () => {
@@ -62,6 +64,7 @@ const NewLetter = () => {
         )}
         <BottomLine />
       </VscContain>
+      <ButtonCP />
     </Body>
   );
 };
