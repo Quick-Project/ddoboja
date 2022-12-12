@@ -4,6 +4,7 @@ import LogoImg from './img/VSCLogo.png';
 import Image from 'next/image';
 
 const MainContain = styled.div`
+  color: white;
   width: 100%;
 `;
 const LogoImage = styled(Image)`
