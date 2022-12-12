@@ -48,7 +48,7 @@ const Letter = () => {
           onMouseOver={() => setIsHovering(0)}
           onMouseOut={() => setIsHovering(1)}
         >
-          <Link href="/vscodestatesNew">편지 쓰기</Link>
+          <Link href="/vscodestatesNew">롤링 페이퍼 보기</Link>
         </WriteLetter>
       </LetterInside>
     </LetterContain>
