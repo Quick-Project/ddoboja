@@ -67,7 +67,7 @@ model FEUser {
 model Letter {
   id       Int       @id @default(autoincrement())
   sender   String
-  receiver String
+  reciever String
   title    String
   content  String    @db.VarChar(500)
   IDE      String
