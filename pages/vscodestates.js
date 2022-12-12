@@ -9,6 +9,7 @@ import TerminalSpace from '../components/VSC/Terminal';
 import BottomLine from '../components/VSC/BottomLine';
 import WriteSpace from '../components/VSC/WriteLetter';
 import RightBoxes from '../components/VSC/RightBox';
+import ButtonCP from '../components/VSC/Button';
 
 const Body = styled.div`
   display: flex;
@@ -39,6 +40,7 @@ const TextBox = styled.div`
 const VscWelcomeTxt = styled.h1`
   font-size: 50px;
   font-weight: 400;
+  color: white;
 `;
 const VscSubTxt = styled.h1`
   color: rgb(142, 142, 142);
@@ -93,6 +95,7 @@ const VSC = () => {
         <BottomLine />
       </VscContain>
       <RightBoxes />
+      <ButtonCP />
     </Body>
   );
 };
