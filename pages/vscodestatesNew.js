@@ -29,7 +29,7 @@ const VscContain = styled.div`
 const NewLetter = () => {
   const [data, setData] = useState();
   const [content, setContent] = useState();
-  const [id, setId] = useState(0);
+  const [id, setId] = useState(-1);
 
   useEffect(() => {
     axios.get('http://localhost:3000/api/letter/FE40').then((res) => {
@@ -39,7 +39,6 @@ const NewLetter = () => {
 
   const viewHandler = (idx) => {
     setId(idx);
-    console.log(data[idx]);
   };
 
   const folder = () => {
