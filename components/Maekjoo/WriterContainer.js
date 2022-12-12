@@ -73,6 +73,7 @@ const UserInput = styled.input`
   font-size: 13px;
   padding-left: 3px;
   padding-right: 3px;
+  background-color: white;
   width: ${({ width }) => width};
   &::placeholder {
     content: attr(placeholder);
