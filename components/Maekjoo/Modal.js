@@ -77,7 +77,7 @@ const Modal = ({ modalOpen, setModalOpen }) => {
   return (
     <BlurBackground>
       <StyledModal>
-        {!errorCheck ? (
+        {!errorCheck && errorCheck !== undefined ? (
           <>
             <ModalText>
               <StyledP>제출이 완료되었습니다. </StyledP>
