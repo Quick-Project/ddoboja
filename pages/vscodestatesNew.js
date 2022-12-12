@@ -42,13 +42,17 @@ const NewLetter = () => {
     console.log(data[idx]);
   };
 
-  // const folder = () => {
-  //   if (data) {
-  //     return (
-  //       <FolderLine viewHandler={viewHandler} contentsData={data && data} />
-  //     );
-  //   }
-  // };
+  const folder = () => {
+    if (data) {
+      return (
+        <FolderLine
+          viewHandler={viewHandler}
+          contentsData={data && data}
+          id={id}
+        />
+      );
+    }
+  };
 
   // const contents = () => {
   //   if (!data) {
