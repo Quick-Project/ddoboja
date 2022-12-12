@@ -24,8 +24,8 @@ export default function useWordCheck(IDE) {
       // 편지데이터가 두번 들어가는 것을 방지
       // setLoading(false);
       if (!resultState) {
-        const { title, content } = emailData;
-        const reciever = emailData.reciver;
+        const { title, content, reciever } = emailData;
+
         const data = {
           date: new Date(),
           IDE,
