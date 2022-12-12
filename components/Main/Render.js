@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import Search from './Search';
+import Search from '.././Search';
 import Link from 'next/link';
-import Ddoboja from '../icon/Ddoboja.png';
-import GoodFe from '../icon/GoodFe.png';
+import Ddoboja from '../../icon/Ddoboja.png';
+import GoodFe from '../../icon/GoodFe.png';
 
 const MainArea = styled.div`
   display: flex;
