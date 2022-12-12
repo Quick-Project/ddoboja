@@ -28,19 +28,6 @@ Jaehong Seo(피터)</b></sub></a><br /><a href="https://github.com/Quick-Project
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-
-<br/>
-
-## ✅ 회의 일정
-
-| 날짜 | 시간 |
-| ---- | ---- |
-|22.10.20| 23:00 ~ 02:00 |
-|22.10.21| 13:00 ~  |
-|22.10.22|      |
-|22.10.23|      |
-|22.10.24|      |
-
 <br/>
 
 <br/>
