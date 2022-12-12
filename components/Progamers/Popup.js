@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image';
-import Progammers from '../icon/progammers.png';
+import Progammers from '../../icon/Progammers.png';
 
 const StyledDiv = styled.div`
   display: flex;
