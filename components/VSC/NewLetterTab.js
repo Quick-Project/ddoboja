@@ -25,16 +25,25 @@ const TabText = styled.div`
   margin: 0 13px 0 8px;
 `;
 
-const NewTabTab = () => {
+const NewTabTab = ({ contentsData, id }) => {
+  console.log(contentsData);
   return (
-    <MainContain>
-      {' '}
-      <TabContain>
-        <JSLogoImage src={jsLogo} width={15} height={15} />
-        <TabText>40기_동기에게 .js</TabText>
-        <div>x</div>
-      </TabContain>
-    </MainContain>
+    contentsData &&
+    contentsData.map((el, idx) => {
+      return idx === id ? (
+        <div key={idx}>
+          <MainContain>
+            <TabContain>
+              <JSLogoImage src={jsLogo} width={15} height={15} />
+              <TabText>{`${el.title}`}</TabText>
+              <div>x</div>
+            </TabContain>
+          </MainContain>
+        </div>
+      ) : (
+        <></>
+      );
+    })
   );
 };
 
