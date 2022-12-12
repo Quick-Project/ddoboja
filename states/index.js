@@ -13,7 +13,7 @@ const { persistAtom } = recoilPersist({
 export const InputValue = atom({
   key: `InputValue`,
   default: {
-    reciver: '',
+    reciever: '',
     title: '',
     content: '',
   },

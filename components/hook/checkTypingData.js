@@ -1,7 +1,7 @@
 import axios from 'axios';
-async function reciverCheck(reciver) {
+async function recieverCheck(reciever) {
   let { data } = await axios.get('api/feuser/get');
-  let checkUser = data.filter((user) => user.name === reciver);
+  let checkUser = data.filter((user) => user.name === reciever);
   // DB에 없는 이름이면 에러가 발생
   if (checkUser.length === 0) {
     return 'DBerror';
@@ -20,10 +20,10 @@ export default async function checkTypingData(typingData) {
     }
 
     // DB에 존재하는 유저인지 확인
-    if (key === 'reciver') {
-      let reciverChecked = await reciverCheck(typingData[key]);
-      if (reciverChecked) {
-        return reciverChecked;
+    if (key === 'reciever') {
+      let recieverChecked = await recieverCheck(typingData[key]);
+      if (recieverChecked) {
+        return recieverChecked;
       }
     }
 

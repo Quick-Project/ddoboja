@@ -134,10 +134,10 @@ export default function WriterContainer() {
       setTitlesize(inputValue.title.length * 1.5 + 4);
     }
 
-    if (inputValue.reciver === '') {
+    if (inputValue.reciever === '') {
       setSize(23);
     } else {
-      setSize(inputValue.reciver.length * 1.8);
+      setSize(inputValue.reciever.length * 1.8);
     }
   }, [inputValue]);
 
@@ -194,7 +194,7 @@ export default function WriterContainer() {
             const
           </Code>
           <Code color={'#808080'} margin={'0px'}>
-            reciver
+            reciever
           </Code>
           <Code margin={'3px'}> = [</Code>
           <div>
@@ -203,8 +203,8 @@ export default function WriterContainer() {
               type={'text'}
               placeholder={'받는 분의 이름을 입력하세요.'}
               size={size}
-              name="reciver"
-              value={inputValue.reciver}
+              name="reciever"
+              value={inputValue.reciever}
               onChange={(e) => onValue(e)}
               mb={'1px'}
             />
