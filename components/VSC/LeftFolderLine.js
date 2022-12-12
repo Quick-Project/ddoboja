@@ -57,7 +57,7 @@ const Text = styled.div`
   color: rgb(142, 142, 142);
 `;
 
-const FolderLine = () => {
+const FolderLine = ({ viewHandler, contentsData }) => {
   return (
     <Contain>
       <Head>
@@ -68,6 +68,16 @@ const FolderLine = () => {
         <Folder src={folder} width={15} height={20} />
         <Text>Goodbye_FE_40th</Text>
       </MainContain>
+      {contentsData.map((el, idx) => {
+        return (
+          <div key={idx}>
+            <FolderContain onClick={() => viewHandler(idx)}>
+              <JSLogo src={jsLogo} width={15} height={15} />
+              <MainText> {`${el.title}.js`}</MainText>
+            </FolderContain>
+          </div>
+        );
+      })}
       <FolderContain>
         <JSLogo src={jsLogo} width={15} height={15} />
         <MainText> {`40기_동기에게 .js`}</MainText>
