@@ -205,7 +205,7 @@ const MainInput = ({ data }) => {
             <Code color={'#DAA1D6'} marginL={'80px'}>
               const{' '}
             </Code>
-            <Code color={'white'}>today</Code>
+            <Code color={'white'}>sendDate</Code>
             <Code margin={'3px'} ls={'1px'}>
               = {inputValue.date}
             </Code>
