@@ -8,7 +8,7 @@ const StatusLine = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 20px;
+  height: 30px;
   overflow: hidden;
   position: absolute;
   bottom: 0px;
