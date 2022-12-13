@@ -2,6 +2,10 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { letterData } from '../states';
+import { useSetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
+import { currentUser } from '../states';
 
 const SearchBox = styled.div`
   flex: 1;
@@ -97,6 +101,7 @@ const SearchResult = styled.ul`
   max-width: 584px;
   box-shadow: 0px 3px 10px -1px rgb(32 33 36 / 30%);
   padding: 0px 0px 20px 0px;
+  color: black;
 
   :before {
     content: '';
@@ -124,6 +129,8 @@ const Search = () => {
   const [hasText, setHasText] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [userResult, setUserResult] = useState([]);
+  const setLetter = useSetRecoilState(letterData);
+  const { name: currentName } = useRecoilValue(currentUser);
 
   useEffect(() => {
     if (inputValue === '') {
@@ -141,10 +148,42 @@ const Search = () => {
 
   const nameClick = (clickedOption) => {
     setInputValue(clickedOption);
+    callLetterData();
     setUserResult([clickedOption]);
   };
 
   const router = useRouter();
+
+  const nameCheck = (searchName) => {
+    if (searchName === currentName) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const searchFunc = async (e) => {
+    if (e.key === 'Enter') {
+      const checkName = nameCheck(inputValue);
+      if (checkName) {
+        await callLetterData();
+      } else {
+        alert('편지 내용은 본인 이름만 검색 가능합니다.');
+        setInputValue('');
+        return;
+      }
+    }
+  };
+
+  const callLetterData = async (e) => {
+    try {
+      const data = await axios.get(`api/letter/${inputValue}`);
+      setLetter(data.data);
+      router.push('/resultpage');
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div>
@@ -167,11 +206,7 @@ const Search = () => {
               placeholder="이름 검색"
               onChange={handleInputChange}
               value={inputValue}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  router.push('/resultpage');
-                }
-              }}
+              onKeyDown={(e) => searchFunc(e)}
             ></input>
           </SearchInput>
         </SearchBox>
