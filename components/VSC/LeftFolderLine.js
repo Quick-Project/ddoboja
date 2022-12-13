@@ -57,7 +57,7 @@ const Text = styled.div`
   color: rgb(142, 142, 142);
 `;
 
-const FolderLine = () => {
+const FolderLine = ({ viewHandler, contentsData }) => {
   return (
     <Contain>
       <Head>
@@ -68,26 +68,24 @@ const FolderLine = () => {
         <Folder src={folder} width={15} height={20} />
         <Text>Goodbye_FE_40th</Text>
       </MainContain>
-      <FolderContain>
-        <JSLogo src={jsLogo} width={15} height={15} />
-        <MainText> {`40기_동기에게 .js`}</MainText>
-      </FolderContain>
-      <FolderContain>
-        <JSLogo src={jsLogo} width={15} height={15} />
-        <Text> {`6개월간의_여정 .js`}</Text>
-      </FolderContain>
-      <FolderContain>
-        <JSLogo src={jsLogo} width={15} height={15} />
-        <Text>{`고생_많았습니다 .js`}</Text>
-      </FolderContain>
-      <FolderContain>
-        <JSLogo src={jsLogo} width={15} height={15} />
-        <Text>{`다음에 만날 때는 .js`}</Text>
-      </FolderContain>
-      <FolderContain>
-        <JSLogo src={jsLogo} width={15} height={15} />
-        <Text>{`현직에서_만납시다 .js`}</Text>
-      </FolderContain>
+      {contentsData &&
+        contentsData.map((el, idx) => {
+          return idx === id ? (
+            <div key={idx}>
+              <FolderContain onClick={() => viewHandler(idx)}>
+                <JSLogo src={jsLogo} width={15} height={15} />
+                <MainText> {`${el.title}.js`}</MainText>
+              </FolderContain>
+            </div>
+          ) : (
+            <div key={idx}>
+              <FolderContain onClick={() => viewHandler(idx)}>
+                <JSLogo src={jsLogo} width={15} height={15} />
+                <Text> {`${el.title}.js`}</Text>
+              </FolderContain>
+            </div>
+          );
+        })}
       <FolderContain>
         <CSS src={cssLogo} width={15} height={15} />
         <Text>{`고마원던_동기에게 .css`}</Text>
