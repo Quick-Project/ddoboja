@@ -10,7 +10,7 @@ async function recieverCheck(reciever) {
   }
 }
 
-export default async function checkTypingData(typingData) {
+export default async function checkTypingData(typingData, IDE) {
   // for문이 끝나야
   for (let key in typingData) {
     // 데이터가 비어있을떄는 key를 출력 key에 맞는 객체를 만들어서 에러메세지로 표현되게 하면 좋을 듯
@@ -20,7 +20,7 @@ export default async function checkTypingData(typingData) {
     }
 
     // DB에 존재하는 유저인지 확인
-    if (key === 'reciever') {
+    if (key === 'reciever' && IDE === 'Maekjoo') {
       let recieverChecked = await recieverCheck(typingData[key]);
       if (recieverChecked) {
         return recieverChecked;
