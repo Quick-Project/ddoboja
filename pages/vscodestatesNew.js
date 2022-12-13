@@ -7,6 +7,7 @@ import MainInput from '../components/VSC/MainInput';
 import NewTabTab from '../components/VSC/NewLetterTab';
 import ButtonCP from '../components/VSC/Button';
 import axios from 'axios';
+import axios from 'axios';
 
 const Body = styled.div`
   display: flex;
