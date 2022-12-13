@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import Ddoboja from '../../icon/Ddoboja.png';
 import GoodFe from '../../icon/GoodFe.png';
 import axios from 'axios';
-import { InputValue } from '../../states';
+import { InputValue, currentUser } from '../../states';
 import { useRecoilState } from 'recoil';
+import useGetTyping from '../hook/useGetTyping';
+import useGetname from '../hook/useGetname';
 
 const Progamers_Main = () => {
   const [isHovering, setIsHovering] = useState(1);
-  const [inputValue, setInputValue] = useRecoilState(InputValue);
-  const onValue = (e) => {
-    setInputValue({
-      ...inputValue,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [inputValue, onValue] = useGetTyping();
+  const userName = useGetname();
+
+  useEffect(() => {
+    const event = {
+      target: {
+        name: 'reciever',
+        value: 'FE40',
+      },
+    };
+    onValue(event);
+  }, []);
 
   return (
     <Content_Container>
@@ -30,7 +37,7 @@ const Progamers_Main = () => {
           <p>문제 설명</p>
           <div className="expln">
             <p>
-              이제 코드스테이츠 졸업을 앞둔 개발자 /이름props 은/는 큰 고민에
+              이제 코드스테이츠 졸업을 앞둔 개발자 {userName} 은/는 큰 고민에
               빠졌다.
             </p>
             <p>
@@ -52,8 +59,8 @@ const Progamers_Main = () => {
           </div>
           <div className="expln">
             <p>
-              이 기회에 고마웠던 사람들에게 편지를 쓰려고 마음 먹은 개발자
-              /이름props 은/는
+              이 기회에 고마웠던 사람들에게 편지를 쓰려고 마음 먹은 개발자{' '}
+              {userName} 은/는
             </p>
             <p>편지를 쓰기 시작하는데...</p>
           </div>
@@ -78,14 +85,10 @@ const Progamers_Main = () => {
             </p>
             <p>
               2. 우리 GoodFe Ddoboja 팀은 이렇게 여러분들에게 프로젝트를 선보일
-              수 있어서 정말 영광이며, (...) 그동안 고마
-            </p>
-            <p className="marginP">
-              웠던 인연들에게 편지를 쓰러 들어와 주신 여러분들의 따듯한 마음에
-              감동을 받았습니다. 총 6개월이라는 짧고
-            </p>
-            <p className="marginP">
-              도 긴 기간 동안 즐겁게 지내주신 FE 여러분들 진심으로 존경합니다.
+              수 있어서 정말 영광이며, (...) 그동안 고마웠던 인연들에게 편지를
+              쓰러 들어와 주신 여러분들의 따듯한 마음에 감동을 받았습니다. 총
+              6개월이라는 짧고도 긴 기간 동안 즐겁게 지내주신 FE 여러분들
+              진심으로 존경합니다.
             </p>
           </div>
           <div className="expln">
@@ -113,16 +116,19 @@ const Progamers_Main = () => {
               <p className="oneTab">
                 <span className="purple"> const </span>
                 <span className="yellow"> reciever </span> = [
-                <Input
-                  width={'200px'}
-                  placeholder="'받을 사람의 이름을 적어주세요'"
-                />
-                ]
+                <span className="yellow"> FE40 </span>]
               </p>
               <p className="oneTab">
                 <span className="purple"> const </span>
                 <span className="yellow"> title </span> = [
-                <Input width={'130px'} placeholder="'제목을 적어주세요'" /> ]
+                <Input
+                  width={'130px'}
+                  placeholder="'제목을 적어주세요'"
+                  value={inputValue.title}
+                  name="title"
+                  onChange={(e) => onValue(e)}
+                />
+                ]
               </p>
               <Content className="oneTab">
                 <span className="purple"> const </span>
@@ -137,7 +143,10 @@ const Progamers_Main = () => {
               <p className="oneTab">
                 <span className="purple"> const </span>
                 <span className="yellow"> writer </span> = [
-                <Input width={'80px'} placeholder="'본인 이름'" /> ]
+                <span className="yellow" width={'80px'}>
+                  {userName}
+                </span>
+                ]
               </p>
               <p className="oneTab">
                 <span className="purple"> const </span>
@@ -204,6 +213,9 @@ const Problem_info = styled.div`
   color: white;
   line-height: 150%;
   overflow: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
   & .marginP {
     margin-left: 15px;
   }
