@@ -10,6 +10,7 @@ import checkTypingData from './checkTypingData';
 // 검사 필요.
 
 export default function useWordCheck(IDE) {
+  // console.log('hi');
   const emailData = useRecoilValue(InputValue);
   const resetData = useResetRecoilState(InputValue);
   //로그인 유저 이름
@@ -20,7 +21,7 @@ export default function useWordCheck(IDE) {
   useEffect(() => {
     const sendData = async () => {
       // 데이터가 모두 잘 들어가있으면 false로 반환됨.
-      const resultState = await checkTypingData({ ...emailData });
+      const resultState = await checkTypingData({ ...emailData }, IDE);
       // 편지데이터가 두번 들어가는 것을 방지
       // setLoading(false);
       if (!resultState) {
