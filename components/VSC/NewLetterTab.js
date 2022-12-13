@@ -35,7 +35,7 @@ const NewTabTab = ({ contentsData, id }) => {
           <MainContain>
             <TabContain>
               <JSLogoImage src={jsLogo} width={15} height={15} />
-              <TabText>{`${el.title}`}</TabText>
+              <TabText>{`${el.title}.js`}</TabText>
               <div>x</div>
             </TabContain>
           </MainContain>
