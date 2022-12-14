@@ -74,12 +74,12 @@ function Popup({ open, setPopup }) {
       <Modal.Footer style={{ border: 0 }}>
         {!errorCheck ? (
           <>
-            <Link href="/">
+            <Link href={'/'}>
               <Button variant="secondary" onClick={handleClose}>
                 메인 화면 가기
               </Button>
             </Link>
-            <Link href="/resultpage">
+            <Link href={'/resultpage'}>
               <Button variant="primary" onClick={handleClose}>
                 검색 창으로 가기
               </Button>

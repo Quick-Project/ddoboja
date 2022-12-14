@@ -84,10 +84,10 @@ const Modal = ({ modalOpen, setModalOpen }) => {
                 <StyledP>제출이 완료되었습니다. </StyledP>
                 <StyledP>편지는 수료 후 일괄 전송 됩니다.</StyledP>
               </ModalText>
-              <Link href="/">
+              <Link href={'/'}>
                 <StyledButton>메인 화면 가기</StyledButton>
               </Link>
-              <Link href="/resultpage">
+              <Link href={'/resultpage'}>
                 <StyledButton>결과 창 가기</StyledButton>
               </Link>
             </>

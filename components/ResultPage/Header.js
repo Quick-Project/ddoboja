@@ -10,7 +10,7 @@ const ResultPage = () => {
   const [isHovering, setIsHovering] = useState(1);
   return (
     <Header_Container>
-      <Link href="/">
+      <Link href={'/'}>
         <div className="img">
           <MainImg
             src={isHovering ? GoodFe : Ddoboja}

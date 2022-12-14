@@ -102,7 +102,7 @@ const ResultPageCard = () => {
   return (
     <IDEcontainer>
       <CardContainer>
-        <Link href="/maekjoo">
+        <Link href={'/maekjoo'}>
           <ImgContainer>
             <Pic
               alt="maekjoo"
@@ -123,7 +123,7 @@ const ResultPageCard = () => {
             </div>
           </div>
           <div>
-            <Link href="/maekjoo">
+            <Link href={'/maekjoo'}>
               <Svg
                 height="24px"
                 width="24px"
@@ -146,7 +146,7 @@ const ResultPageCard = () => {
         </ThridContainer>
       </CardContainer>
       <CardContainer>
-        <Link href="/vscodestates">
+        <Link href={'/vscodestates'}>
           <ImgContainer>
             <Pic alt="Ddoboja" style={{ margin: '2px' }} src={Ddoboja}></Pic>
             <img
@@ -163,7 +163,7 @@ const ResultPageCard = () => {
             </div>
           </div>
           <div>
-            <Link href="/vscodestates">
+            <Link href={'/vscodestates'}>
               <Svg
                 height="24px"
                 width="24px"
@@ -186,7 +186,7 @@ const ResultPageCard = () => {
         </ThridContainer>
       </CardContainer>
       <CardContainer>
-        <Link href="/progamers">
+        <Link href={'/progamers'}>
           <ImgContainer>
             <Pic
               alt="progamers"
@@ -209,7 +209,7 @@ const ResultPageCard = () => {
             </div>
           </div>
           <div>
-            <Link href="/progamers">
+            <Link href={'/progamers'}>
               <Svg
                 height="24px"
                 width="24px"
