@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../components/progamers/Header';
+import Header from '../components/Progamers/Header';
 import styled from 'styled-components';
-import Progamers_Main from '../components/progamers/Main';
-import Progamers_Footer from '../components/progamers/Footer';
+import Progamers_Main from '../components/Progamers/Main';
+import Progamers_Footer from '../components/Progamers/Footer';
 
 const Progamers = () => {
   return (
