@@ -285,6 +285,7 @@ const Input = styled.input`
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '25px'};
   background: rgb(30, 42, 54);
+  color: white;
 
   ::placeholder {
     color: rgb(229, 207, 47);
@@ -308,7 +309,6 @@ const ExplnImg = styled(Image)`
   }
 `;
 const InputTextArea = styled.input`
-  margin-left: 150px;
   padding: 0px 10px 10px 10px;
   border-style: none;
   width: 600px;
