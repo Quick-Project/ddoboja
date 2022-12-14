@@ -13,8 +13,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 }
 
 export default MyApp;
-
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
+  // export async function getServerSideProps(context) {
   const session = await getSession(context);
 
   return {
