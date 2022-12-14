@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Link from 'next/Link';
-
+import Link from 'next/link';
 import newLogo from './img/newFile.png';
 import greenLogo from './img/newFileGreen.png';
 import Image from 'next/image';
@@ -48,7 +47,7 @@ const Letter = () => {
           onMouseOver={() => setIsHovering(0)}
           onMouseOut={() => setIsHovering(1)}
         >
-          <Link href="/vscodestatesNew">롤링 페이퍼 보기</Link>
+          <Link href={'/vscodestatesNew'}>롤링 페이퍼 보기</Link>
         </WriteLetter>
       </LetterInside>
     </LetterContain>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/Link';
+import Link from 'next/link';
 
 const SubmitButton = styled.button`
   position: absolute;
@@ -16,7 +16,7 @@ const ButtonCP = () => {
   return (
     <>
       <SubmitButton>
-        <Link href="/">메인화면으로 가기</Link>
+        <Link href={'/'}>메인화면으로 가기</Link>
       </SubmitButton>
     </>
   );

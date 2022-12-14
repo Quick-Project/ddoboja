@@ -8,7 +8,7 @@ import Progammers from '../../icon/progammers.png';
 import useWordCheck from '../hook/useWordCheck';
 import useGetTyping from '../hook/useGetTyping';
 import { errorMsg } from '../errorMsg';
-import Link from 'next/Link';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 const StyledDiv = styled.div`
@@ -74,12 +74,12 @@ function Popup({ open, setPopup }) {
       <Modal.Footer style={{ border: 0 }}>
         {!errorCheck ? (
           <>
-            <Link href="/">
+            <Link href={'/'}>
               <Button variant="secondary" onClick={handleClose}>
                 메인 화면 가기
               </Button>
             </Link>
-            <Link href="/resultpage">
+            <Link href={'/resultpage'}>
               <Button variant="primary" onClick={handleClose}>
                 검색 창으로 가기
               </Button>

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import Arrow from '../../icon/Arrow.png';
-import MaekjooDark from '../../icon/Maekjoodark.png';
+import MaekjooDark from '../../icon/MaekjooDark.png';
 import MaekjooLight from '../../icon/MaekjooLight.png';
 import Link from 'next/link';
 import { useRecoilValue } from 'recoil';
