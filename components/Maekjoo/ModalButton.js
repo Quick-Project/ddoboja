@@ -44,9 +44,9 @@ const ModalButton = (props) => {
         />
       )}
       <StyledButton onClick={showModal}>제출</StyledButton>
-      <Link href="/progamers">
+      {/* <Link href="/progamers">
         <StyledButton>테마 변경</StyledButton>
-      </Link>
+      </Link> */}
     </ButtonContainer>
   );
 };

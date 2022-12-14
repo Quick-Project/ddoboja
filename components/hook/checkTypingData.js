@@ -1,12 +1,10 @@
 import axios from 'axios';
 async function recieverCheck(reciever) {
-  let { data } = await axios.get('api/feuser/get');
-  let checkUser = data.filter((user) => user.name === reciever);
-  // DB에 없는 이름이면 에러가 발생
-  if (checkUser.length === 0) {
-    return 'DBerror';
-  } else {
+  const user = await axios.get(`/api/feuser/name/${reciever}`);
+  if (user.data) {
     return false;
+  } else {
+    return 'DBerror';
   }
 }
 
