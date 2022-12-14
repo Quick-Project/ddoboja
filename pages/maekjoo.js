@@ -7,10 +7,9 @@ import Selector from '../components/Maekjoo/Selector';
 import TickTack from '../components/TickTack';
 import ModalButton from '../components/Maekjoo/ModalButton';
 import { getSession, useSession } from 'next-auth/react';
-import { useRecoilValue } from 'recoil';
-import { currentUser } from '../states';
+
 import { useRouter } from 'next/router';
-import useGetname from '../components/hook/useGetname';
+
 const MainContainer = styled.div`
   /* height: 100%; */
   width: 100%;
