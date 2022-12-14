@@ -35,6 +35,7 @@ const MainButton = styled.button`
   padding: 1em;
   border-radius: 50%;
   border: 1px solid gray;
+  cursor: pointer;
 `;
 
 const MainDiv = styled.div`

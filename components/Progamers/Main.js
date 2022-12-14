@@ -3,9 +3,6 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Ddoboja from '../../icon/Ddoboja.png';
 import GoodFe from '../../icon/GoodFe.png';
-import axios from 'axios';
-import { InputValue, currentUser } from '../../states';
-import { useRecoilState } from 'recoil';
 import useGetTyping from '../hook/useGetTyping';
 import useGetname from '../hook/useGetname';
 
@@ -214,6 +211,10 @@ const Middle_Content = styled.div`
 const Input_Wrap = styled.div`
   width: 100%;
   height: 70vh;
+  overflow: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 const Problem_info = styled.div`
   padding: 20px;
@@ -241,6 +242,7 @@ const Result = styled.div`
 const Right_Side = styled.div`
   display: flex;
   width: 60%;
+
   flex-direction: column;
 `;
 
@@ -312,7 +314,7 @@ const InputTextArea = styled.input`
   padding: 0px 10px 10px 10px;
   border-style: none;
   width: 600px;
-  height: 250px;
+  height: 220px;
   background: rgb(30, 42, 54);
   color: white;
   ::placeholder {
