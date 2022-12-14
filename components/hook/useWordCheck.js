@@ -36,7 +36,7 @@ export default function useWordCheck(IDE) {
           reciever,
         };
         try {
-          const sendEmail = await axios.post('/api/letter/create', data);
+          const sendEmail = await axios.post('/api/letter/create', { ...data });
           resetData();
         } catch (e) {
           console.log(e);
