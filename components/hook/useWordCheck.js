@@ -14,7 +14,8 @@ export default function useWordCheck(IDE) {
   const emailData = useRecoilValue(InputValue);
   const resetData = useResetRecoilState(InputValue);
   //로그인 유저 이름
-  const { name: sender } = useRecoilValue(currentUser);
+  const name = useRecoilValue(currentUser);
+  // console.log(name);
   // const [loading, setLoading] = useState(true);
   const [result, setResult] = useState();
   // 타이핑 항목 검사
@@ -30,7 +31,7 @@ export default function useWordCheck(IDE) {
         const data = {
           date: new Date(),
           IDE,
-          sender,
+          sender: name,
           title,
           content,
           reciever,
