@@ -40,7 +40,7 @@ const NewLetter = () => {
   const viewHandler = (idx) => {
     setId(idx);
   };
-  
+
   useEffect(() => {
     if (data) {
       setContent(data[id]);

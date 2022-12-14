@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Modal from './Modal';
-import Link from 'next/link';
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -44,9 +43,6 @@ const ModalButton = (props) => {
         />
       )}
       <StyledButton onClick={showModal}>제출</StyledButton>
-      {/* <Link href="/progamers">
-        <StyledButton>테마 변경</StyledButton>
-      </Link> */}
     </ButtonContainer>
   );
 };
