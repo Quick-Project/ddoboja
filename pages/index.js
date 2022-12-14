@@ -2,17 +2,31 @@ import React, { useEffect, useState } from 'react';
 import Nav from '../components/Main/Nav.js';
 import Render from '../components/Main/Render.js';
 import { useSession, signIn, signOut, getSession } from 'next-auth/react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useResetRecoilState } from 'recoil';
 import { currentUser } from '../states/index.js';
 import { getUser } from '../components/apis/checkUser';
 
 export default function Home() {
   const { data: session } = useSession();
   const [user, setUser] = useRecoilState(currentUser);
+  const resetData = useResetRecoilState(currentUser);
+
   useEffect(() => {
-    if (session) {
-      getUser(session.user.email).then((user) => setUser(user));
-    }
+    const login = async () => {
+      if (session) {
+        let userName = await getUser(session.user.email);
+        if (userName) {
+          setUser(userName);
+        } else {
+          resetData();
+          alert('확인되지 않은 유저입니다.');
+          signOut();
+        }
+      } else {
+        resetData();
+      }
+    };
+    login();
   }, [session]);
   return (
     <>
