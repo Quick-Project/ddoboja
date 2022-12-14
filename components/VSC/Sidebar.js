@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import OnFile from './img/Onfile.png';
-import OffFile from './img/offfile.png';
+import OffFile from './img/Offfile.png';
 import Image from 'next/image';
 
 // const Onfile = styled(Image)``;
