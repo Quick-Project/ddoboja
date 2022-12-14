@@ -16,7 +16,7 @@ const ButtonCP = () => {
   return (
     <>
       <SubmitButton>
-        <Link href="/">메인화면으로 가기</Link>
+        <Link href={'/'}>메인화면으로 가기</Link>
       </SubmitButton>
     </>
   );
