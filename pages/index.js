@@ -35,8 +35,8 @@ export default function Home() {
     </>
   );
 }
-export async function getStaticProps(context) {
-  // export async function getServerSideProps(context) {
+
+export async function getServerSideProps(context) {
   // getSession을 이용하면 현재 로그인 정보를 얻을 수  있음
   const session = await getSession(context);
   // context에는 여러가지 정보들이 있음
