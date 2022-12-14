@@ -8,8 +8,12 @@ const StatusLine = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 40px;
+  height: 30px;
   overflow: hidden;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding-right: 250px;
 `;
 
 const LineKeeper = styled.div`
@@ -75,7 +79,7 @@ const BottomLine = () => {
     <StatusLine>
       <LineKeeper bot={bot} boolean={boolean}>
         <ProductionInformation>제작 : 또보자(Ddoboja)</ProductionInformation>
-        <ProductionInformation>배포일 : 미정</ProductionInformation>
+        <ProductionInformation>배포일 : 2022년 12월 13일</ProductionInformation>
         <ProductionInformation>
           팀원 : 헬리 앤디 피터 백준 승새 부기
         </ProductionInformation>
@@ -85,11 +89,10 @@ const BottomLine = () => {
         <ProductionInformation>메인 에러 : eslint</ProductionInformation>
         <ProductionInformation>Thanks to : FE 40</ProductionInformation>
         <ProductionInformation>
-          제작사유 : 스프린트 쫑파티 하다가 아이디어 폭주...
+          제작사유 : 메인프로젝트 종료 후 무력감을 떨쳐내기 위해...
         </ProductionInformation>
         <ProductionInformation>
-          당부 말씀 : 여러분은 쫑파티 하면서 아이디어 내지마세요. 특히 메인
-          전에!
+          당부 말씀 : 재밌게 즐겨주시길 바랍니다!
         </ProductionInformation>
         <ProductionInformation>
           팀 목표 : 40기 FE에 감동주기

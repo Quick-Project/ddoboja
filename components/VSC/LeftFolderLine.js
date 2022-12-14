@@ -13,8 +13,9 @@ const Contain = styled.div`
   flex-direction: column;
   border-right: 1px solid black;
   width: 200px;
-  height: 100vh;
+  height: 100%;
   margin-left: 40px;
+  overflow: auto;
 `;
 const Head = styled.div`
   display: flex;
@@ -42,9 +43,13 @@ const FolderContain = styled.div`
   margin-bottom: 5px;
   margin-top: 5px;
   align-items: center;
+  :hover {
+    cursor: pointer;
+  }
 `;
 const HeadText = styled.div`
   font-size: 13px;
+  color: white;
 `;
 const MainText = styled.div`
   margin-left: 10px;
@@ -57,7 +62,7 @@ const Text = styled.div`
   color: rgb(142, 142, 142);
 `;
 
-const FolderLine = () => {
+const FolderLine = ({ viewHandler, contentsData, id }) => {
   return (
     <Contain>
       <Head>
@@ -68,33 +73,31 @@ const FolderLine = () => {
         <Folder src={folder} width={15} height={20} />
         <Text>Goodbye_FE_40th</Text>
       </MainContain>
+      {contentsData &&
+        contentsData.map((el, idx) => {
+          return idx === id ? (
+            <div key={idx}>
+              <FolderContain onClick={() => viewHandler(idx)}>
+                <JSLogo src={jsLogo} width={15} height={15} />
+                <MainText> {`${el.title}.js`}</MainText>
+              </FolderContain>
+            </div>
+          ) : (
+            <div key={idx}>
+              <FolderContain onClick={() => viewHandler(idx)}>
+                <JSLogo src={jsLogo} width={15} height={15} />
+                <Text> {`${el.title}.js`}</Text>
+              </FolderContain>
+            </div>
+          );
+        })}
       <FolderContain>
-        <JSLogo src={jsLogo} width={15} height={15} />
-        <MainText> {`40기_동기에게 .js`}</MainText>
-      </FolderContain>
-      <FolderContain>
-        <JSLogo src={jsLogo} width={15} height={15} />
-        <Text> {`6개월간의_여정 .js`}</Text>
-      </FolderContain>
-      <FolderContain>
-        <JSLogo src={jsLogo} width={15} height={15} />
-        <Text>{`고생_많았습니다 .js`}</Text>
-      </FolderContain>
-      <FolderContain>
-        <JSLogo src={jsLogo} width={15} height={15} />
-        <Text>{`다음에 만날 때는 .js`}</Text>
-      </FolderContain>
-      <FolderContain>
-        <JSLogo src={jsLogo} width={15} height={15} />
-        <Text>{`현직에서_만납시다 .js`}</Text>
+        <CSS src={cssLogo} width={15} height={15} />
+        <Text>{`고생한_동기들에게 .css`}</Text>
       </FolderContain>
       <FolderContain>
         <CSS src={cssLogo} width={15} height={15} />
-        <Text>{`고마원던_동기에게 .css`}</Text>
-      </FolderContain>
-      <FolderContain>
-        <CSS src={cssLogo} width={15} height={15} />
-        <Text>{`마음을_담은_편지 .css`}</Text>
+        <Text>{`하고싶은_말들 .css`}</Text>
       </FolderContain>
       <FolderContain>
         <JsonLogo src={jsonFile} width={20} height={20} />

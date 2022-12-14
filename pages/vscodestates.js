@@ -9,6 +9,7 @@ import TerminalSpace from '../components/VSC/Terminal';
 import BottomLine from '../components/VSC/BottomLine';
 import WriteSpace from '../components/VSC/WriteLetter';
 import RightBoxes from '../components/VSC/RightBox';
+import ButtonCP from '../components/VSC/Button';
 
 const Body = styled.div`
   display: flex;
@@ -39,6 +40,7 @@ const TextBox = styled.div`
 const VscWelcomeTxt = styled.h1`
   font-size: 50px;
   font-weight: 400;
+  color: white;
 `;
 const VscSubTxt = styled.h1`
   color: rgb(142, 142, 142);
@@ -50,6 +52,7 @@ const CheckboxContainer = styled.div`
   justify-content: center;
   align-items: flex-end;
   margin: 10px;
+  margin-bottom: 50px;
   color: rgb(142, 142, 142);
 `;
 
@@ -89,12 +92,10 @@ const VSC = () => {
               : '별🌟은 눌러 주셨나요?'}
           </Label>
         </CheckboxContainer>
-        {/* 
-      <WriteSpace />
-    <TerminalSpace /> */}
         <BottomLine />
       </VscContain>
       <RightBoxes />
+      <ButtonCP />
     </Body>
   );
 };
