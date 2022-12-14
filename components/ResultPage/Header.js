@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Ddoboja from '../../icon/Ddoboja.png';
 import GoodFe from '../../icon/GoodFe.png';
 import Search from '.././Search';
-import Link from 'next/Link';
+import Link from 'next/link';
 
 const ResultPage = () => {
   const [isHovering, setIsHovering] = useState(1);

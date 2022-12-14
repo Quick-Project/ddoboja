@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Link from 'next/Link';
+import Link from 'next/link';
 
 import newLogo from './img/newFile.png';
 import greenLogo from './img/newFileGreen.png';
