@@ -4,19 +4,22 @@ import Image from 'next/image';
 import Ddoboja from '../../icon/Ddoboja.png';
 import GoodFe from '../../icon/GoodFe.png';
 import Search from '.././Search';
+import Link from 'next/Link';
 
 const ResultPage = () => {
   const [isHovering, setIsHovering] = useState(1);
   return (
     <Header_Container>
-      <div className="img">
-        <MainImg
-          src={isHovering ? GoodFe : Ddoboja}
-          alt="구글 아이콘"
-          onMouseOver={() => setIsHovering(0)}
-          onMouseOut={() => setIsHovering(1)}
-        ></MainImg>
-      </div>
+      <Link href="/">
+        <div className="img">
+          <MainImg
+            src={isHovering ? GoodFe : Ddoboja}
+            alt="구글 아이콘"
+            onMouseOver={() => setIsHovering(0)}
+            onMouseOut={() => setIsHovering(1)}
+          ></MainImg>
+        </div>
+      </Link>
       <TopDiv>
         <StyledDiv>
           <Search />

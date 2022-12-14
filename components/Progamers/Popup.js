@@ -5,6 +5,11 @@ import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image';
 import Progammers from '../../icon/progammers.png';
+import useWordCheck from '../hook/useWordCheck';
+import useGetTyping from '../hook/useGetTyping';
+import { errorMsg } from '../errorMsg';
+import Link from 'next/Link';
+import { useState, useEffect } from 'react';
 
 const StyledDiv = styled.div`
   display: flex;
@@ -29,13 +34,19 @@ const StyledImg = styled(Image)`
   height: 50px;
 `;
 
-function Popup({ open, setPopup, title, callback }) {
+function Popup({ open, setPopup }) {
   const handleClose = () => {
-    setPopup({ open: false });
-    if (callback) {
-      callback();
-    }
+    setPopup(false);
   };
+  const [errorArr, setErrorArr] = useState([]);
+  const [inputValue, onValue] = useGetTyping();
+  const errorCheck = useWordCheck('Progamers');
+
+  useEffect(() => {
+    if (errorCheck) {
+      setErrorArr([errorMsg[`${errorCheck}`], errorMsg[`${errorCheck}3`]]);
+    }
+  }, [errorCheck]);
 
   return (
     <Modal show={open} onHide={handleClose}>
@@ -49,8 +60,11 @@ function Popup({ open, setPopup, title, callback }) {
             </StyledDiv>
             <StyledDivv>
               <div>
-                {Array.isArray(title) &&
-                  title.map((el, idx) => <div key={idx}>{el}</div>)}
+                {errorArr.length > 0 ? (
+                  errorArr.map((el, idx) => <div key={idx}>{el}</div>)
+                ) : (
+                  <div>전송되었습니다.</div>
+                )}
               </div>
             </StyledDivv>
           </TitleDiv>
@@ -58,14 +72,18 @@ function Popup({ open, setPopup, title, callback }) {
       </Modal.Header>
 
       <Modal.Footer style={{ border: 0 }}>
-        {true ? (
+        {!errorCheck ? (
           <>
-            <Button variant="secondary" onClick={handleClose}>
-              확인
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-              검색 창으로 가기
-            </Button>
+            <Link href="/">
+              <Button variant="secondary" onClick={handleClose}>
+                메인 화면 가기
+              </Button>
+            </Link>
+            <Link href="/resultpage">
+              <Button variant="primary" onClick={handleClose}>
+                검색 창으로 가기
+              </Button>
+            </Link>
           </>
         ) : (
           <>
