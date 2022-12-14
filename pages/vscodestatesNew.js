@@ -32,7 +32,7 @@ const NewLetter = () => {
   const [id, setId] = useState(-1);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/letter/FE40').then((res) => {
+    axios.get('api/letter/FE40').then((res) => {
       setData(res.data);
     });
   }, []);
