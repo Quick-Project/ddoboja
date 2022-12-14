@@ -79,9 +79,9 @@ function Popup({ open, setPopup }) {
                 메인 화면 가기
               </Button>
             </Link>
-            <Link href={'/resultpage'}>
+            <Link href={'/vscodestates'}>
               <Button variant="primary" onClick={handleClose}>
-                검색 창으로 가기
+                결과 창으로 가기
               </Button>
             </Link>
           </>
