@@ -6,6 +6,7 @@ import { letterData } from '../states';
 import { useSetRecoilState } from 'recoil';
 import { useRecoilValue } from 'recoil';
 import { currentUser } from '../states';
+import useGetname from './hook/useGetname';
 
 const SearchBox = styled.div`
   flex: 1;
@@ -130,7 +131,7 @@ const Search = () => {
   const [inputValue, setInputValue] = useState('');
   const [userResult, setUserResult] = useState([]);
   const setLetter = useSetRecoilState(letterData);
-  const { name: currentName } = useRecoilValue(currentUser);
+  const currentName = useGetname();
 
   useEffect(() => {
     if (inputValue === '') {

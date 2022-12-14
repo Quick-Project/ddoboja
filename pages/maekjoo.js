@@ -6,8 +6,11 @@ import WriterContainer from '../components/Maekjoo/WriterContainer';
 import Selector from '../components/Maekjoo/Selector';
 import TickTack from '../components/TickTack';
 import ModalButton from '../components/Maekjoo/ModalButton';
-import { getSession } from 'next-auth/react';
-
+import { getSession, useSession } from 'next-auth/react';
+import { useRecoilValue } from 'recoil';
+import { currentUser } from '../states';
+import { useRouter } from 'next/router';
+import useGetname from '../components/hook/useGetname';
 const MainContainer = styled.div`
   /* height: 100%; */
   width: 100%;
@@ -50,60 +53,73 @@ const Container = styled.div`
 `;
 
 export default function maekjoo() {
+  const { data: session } = useSession();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!session) {
+      alert('로그인이 필요한 서비스입니다.');
+      router.push('/');
+    }
+  }, [session]);
   return (
-    <MainContainer>
-      {/* 헤더 페이지 */}
-      <Container
-        h={'80px'}
-        m={'0px 0px 50px 0px'}
-        className="HeadNav"
-        boxShadow={'0 -3px 0 0  #e7e7e7 inset'}
-      >
-        <HeadNav />
-      </Container>
-      {/* 메뉴바 */}
-      <Container
-        h={'60px'}
-        w={'1150px'}
-        className={'BodyNav'}
-        m={'0 0 5px 60px'}
-      >
-        <BodyNav />
-      </Container>
-      {/* 문제 제목 */}
-      <Container
-        h={'40px'}
-        m={'10px 10px'}
-        borderBottom={'2px solid black'}
-        w={'1150px'}
-        className="title"
-      >
-        <h1>A + B</h1>
-      </Container>
-      {/* 셀렉 */}
-      <Container
-        h={'60px'}
-        w={'1000px'}
-        m={'0px 0px 20px 0px'}
-        className="selectBox"
-      >
-        <Selector />
-      </Container>
-      {/* 편지 입력 컨테이너 */}
-      <Container h={'450px'} w={'1000px'}>
-        <WriterContainer />
-      </Container>
-      {/* 버튼 박스 */}
-      <Container
-        h={'60px'}
-        w={'1000px'}
-        m={'0 0 0 110px'}
-        p={'0px 0px 0px 50px'}
-      >
-        <ModalButton />
-      </Container>
-      <TickTack />
-    </MainContainer>
+    session && (
+      <MainContainer>
+        {/* 헤더 페이지 */}
+
+        <Container
+          h={'80px'}
+          m={'0px 0px 50px 0px'}
+          className="HeadNav"
+          boxShadow={'0 -3px 0 0  #e7e7e7 inset'}
+        >
+          <HeadNav />
+        </Container>
+        {/* 메뉴바 */}
+        <Container
+          h={'60px'}
+          w={'1150px'}
+          className={'BodyNav'}
+          m={'0 0 5px 60px'}
+        >
+          <BodyNav />
+        </Container>
+        {/* 문제 제목 */}
+        <Container
+          h={'40px'}
+          m={'10px 10px'}
+          borderBottom={'2px solid black'}
+          w={'1150px'}
+          className="title"
+        >
+          <h1>A + B</h1>
+        </Container>
+        {/* 셀렉 */}
+        <Container
+          h={'60px'}
+          w={'1000px'}
+          m={'0px 0px 20px 0px'}
+          className="selectBox"
+        >
+          <Selector />
+        </Container>
+        {/* 편지 입력 컨테이너 */}
+        <Container h={'450px'} w={'1000px'}>
+          <WriterContainer />
+        </Container>
+        {/* 버튼 박스 */}
+        <Container
+          h={'60px'}
+          w={'1000px'}
+          m={'0 0 0 110px'}
+          p={'0px 0px 0px 50px'}
+        >
+          <ModalButton />
+        </Container>
+        <TickTack />
+      </MainContainer>
+    )
   );
 }
 

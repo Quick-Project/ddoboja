@@ -18,13 +18,17 @@ export const getUser = async (userEmail) => {
     });
     // 현재 로그인 유저 아이디
     const currentUserId = getUserInfo.data['login'];
-    const { data: feUser } = await axios.get('/api/feuser/get');
-
-    const filterUserName = feUser.filter((x) => x.gitHub === currentUserId);
-    const name = { name: filterUserName[0].name };
-
-    return name;
+    //
+    const { data } = await axios.get(`/api/feuser/github/${currentUserId}`);
+    // console.log(data);
+    if (data) {
+      const filterUserName = data.name;
+      return filterUserName;
+    } else {
+      return data;
+    }
   } catch (err) {
-    return 'DB에 존재하지 않는 유저입니다.';
+    console.log(err);
+    return;
   }
 };
