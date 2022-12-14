@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Link from 'next/link';
 import { InputValue } from '../../states';
 import { useRecoilValue } from 'recoil';
@@ -53,6 +53,69 @@ const StyledButton = styled.button`
   margin: 10px;
   font-size: 18px;
 `;
+const wave = keyframes`
+  0% {
+     top: 0;
+  } 
+  20% { 
+   top: -0.4rem; 
+   } 
+  40% {
+  top: 0;
+  } 
+  60% {
+    top: 0;
+  } 
+  80% {
+  top: 0;
+  } 
+  100% { 
+   top: 0;
+  } 
+`;
+
+const StyledDiv = styled.div`
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  span {
+    animation: ${wave} 1.5s infinite;
+    position: relative;
+  }
+  span:nth-of-type(1) {
+    animation-delay: 0.1s;
+  }
+  span:nth-of-type(2) {
+    animation-delay: 0.2s;
+  }
+  span:nth-of-type(3) {
+    animation-delay: 0.3s;
+  }
+  span:nth-of-type(4) {
+    animation-delay: 0.4s;
+  }
+  span:nth-of-type(5) {
+    animation-delay: 0.5s;
+  }
+  span:nth-of-type(6) {
+    animation-delay: 0.6s;
+  }
+  span:nth-of-type(7) {
+    animation-delay: 0.7s;
+  }
+  span:nth-of-type(8) {
+    animation-delay: 0.8s;
+  }
+  span:nth-of-type(9) {
+    animation-delay: 0.9s;
+  }
+  span:nth-of-type(10) {
+    animation-delay: 1s;
+  }
+  span:nth-of-type(11) {
+    animation-delay: 1.1s;
+  }
+`;
 
 const StyledP = styled.p`
   margin: 0px;
@@ -76,9 +139,9 @@ const Modal = ({ modalOpen, setModalOpen }) => {
 
   return (
     <BlurBackground>
-      {errorCheck !== undefined && (
-        <StyledModal>
-          {!errorCheck ? (
+      <StyledModal>
+        {errorCheck !== undefined ? (
+          !errorCheck ? (
             <>
               <ModalText>
                 <StyledP>제출이 완료되었습니다. </StyledP>
@@ -110,9 +173,23 @@ const Modal = ({ modalOpen, setModalOpen }) => {
                 {errorMsg[`${errorCheck}4`]}
               </StyledButton>
             </>
-          )}
-        </StyledModal>
-      )}{' '}
+          )
+        ) : (
+          <StyledDiv>
+            <span>메</span>
+            <span>세</span>
+            <span>지</span>
+            <span>를</span>
+            <span> </span>
+            <span>전</span>
+            <span>송</span>
+            <span>중</span>
+            <span>입</span>
+            <span>니</span>
+            <span>다</span>
+          </StyledDiv>
+        )}{' '}
+      </StyledModal>
     </BlurBackground>
   );
 };
