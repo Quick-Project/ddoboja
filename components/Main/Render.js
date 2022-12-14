@@ -34,6 +34,7 @@ const MainButton = styled.button`
   margin: 1em;
   padding: 1em;
   border-radius: 50%;
+  border: 1px solid gray;
 `;
 
 const MainDiv = styled.div`
@@ -55,13 +56,13 @@ const Render = () => {
       <Search />
       <MainDiv>
         <Link href={'/maekjoo'}>
-          <MainButton></MainButton>
+          <MainButton>M</MainButton>
         </Link>
         <Link href={'/progamers'}>
-          <MainButton></MainButton>
+          <MainButton>P</MainButton>
         </Link>
         <Link href={'/vscodestates'}>
-          <MainButton></MainButton>
+          <MainButton>V</MainButton>
         </Link>
       </MainDiv>
     </MainArea>
