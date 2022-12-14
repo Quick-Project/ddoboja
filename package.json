@@ -1,20 +1,47 @@
 {
-  "name": "ddoboja",
+  "name": "vscodestate",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "push": "npx prisma db push",
+    "prisma": "npx prisma studio",
+    "pscale": "pscale connect ddoboja main --port 3309"
   },
   "dependencies": {
-    "next": "13.0.6",
+    "@next-auth/prisma-adapter": "^1.0.5",
+    "@prisma/client": "^4.4.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "axios": "^1.1.3",
+    "bootstrap": "^5.2.2",
+    "dayjs": "^1.11.7",
+    "next": "12.3.1",
+    "next-auth": "^4.15.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-bootstrap": "^2.5.0",
+    "react-dom": "18.2.0",
+    "recoil": "^0.7.6",
+    "recoil-persist": "^4.2.0",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
-    "eslint": "8.29.0",
-    "eslint-config-next": "13.0.6"
+    "@testing-library/user-event": "^14.4.3",
+    "@types/uuid": "^8.3.4",
+    "babel-plugin-styled-components": "^2.0.7",
+    "eslint": "^8.25.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^4.0.0",
+    "prettier": "^2.7.1",
+    "prisma": "^4.4.0"
   }
 }
