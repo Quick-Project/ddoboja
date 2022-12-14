@@ -34,7 +34,7 @@ const Progamers_Main = () => {
       </Top_Content>
       <Middle_Content>
         <Problem_info>
-          <p>문제 설명</p>
+          <p className="white">문제 설명</p>
           <div className="expln">
             <p>
               이제 코드스테이츠 졸업을 앞둔 개발자 {userName} 은/는 큰 고민에
@@ -65,7 +65,7 @@ const Progamers_Main = () => {
             <p>편지를 쓰기 시작하는데...</p>
           </div>
           <div className="expln">
-            <p>제한 사항</p>
+            <p className="white">제한 사항</p>
             <ul>
               <StyleList>
                 주어진 텍스트의 글자 수는 총 500자 수 (공백 포함)
@@ -78,7 +78,7 @@ const Progamers_Main = () => {
             </ul>
           </div>
           <div className="expln">
-            <p>입출력 예</p>
+            <p className="white">입출력 예</p>
             <p>
               1. 우리 GoodFe Ddoboja 팀은 여러분들의 참여에 감사를 표하며, 수료
               후 뒤풀이에서 볼 수 있기를 희망합니다.
@@ -92,7 +92,7 @@ const Progamers_Main = () => {
             </p>
           </div>
           <div className="expln">
-            <p>입출력 예설명</p>
+            <p className="white">입출력 예설명</p>
             <p>1. 공백 포함 총 67자 이기에 정상적인 전송이 이루어집니다.</p>
             <p>
               2. 공백 포함 총 515자 이기 때문에 정상적인 전송이 이루어지지
@@ -100,7 +100,7 @@ const Progamers_Main = () => {
             </p>
           </div>
           <div className="expln">
-            <p>힌트</p>
+            <p className="white">힌트</p>
             <p>
               편지에 담긴 마음이 중요하기에 아무리 짧은 편지여도 당신의 진심이
               담긴 편지라면 편지를 받은 동기에게 큰 감동을 선사할 수 있으리라
@@ -110,9 +110,11 @@ const Progamers_Main = () => {
         </Problem_info>
         <Right_Side>
           <Input_Wrap>
-            <FileName> 편지.js </FileName>
+            <FileName> 롤링페이퍼.js </FileName>
             <Input_Body>
-              <span className="yellow"> const FE40Letter( ) &#123; </span>
+              <span className="purple">const</span>
+              <span className="yellow"> FE40Letter( ) </span>
+              <span> &#123;</span>
               <p className="oneTab">
                 <span className="purple"> const </span>
                 <span className="yellow"> reciever </span> = [
@@ -122,7 +124,7 @@ const Progamers_Main = () => {
                 <span className="purple"> const </span>
                 <span className="yellow"> title </span> = [
                 <Input
-                  width={'130px'}
+                  width={'140px'}
                   placeholder="'제목을 적어주세요'"
                   value={inputValue.title}
                   name="title"
@@ -133,30 +135,36 @@ const Progamers_Main = () => {
               <Content className="oneTab">
                 <span className="purple"> const </span>
                 <span className="yellow"> contents </span> =
-                <textarea
-                  placeholder="'내용을 적어주세요'"
-                  value={inputValue.content}
-                  onChange={(e) => onValue(e)}
-                  name="content"
-                />
+                <span className="yellow marginL">(</span>e
+                <span className="yellow marginL">)</span>
+                &#61;&#62; &#123;
               </Content>
+              <InputTextArea
+                placeholder="'내용을 적어주세요'"
+                value={inputValue.content}
+                onChange={(e) => onValue(e)}
+                name="content"
+              />
+              <br />
+              &#125;
               <p className="oneTab">
                 <span className="purple"> const </span>
                 <span className="yellow"> writer </span> = [
                 <span className="yellow" width={'80px'}>
-                  {userName}
+                  {' '}
+                  {userName}{' '}
                 </span>
                 ]
               </p>
               <p className="oneTab">
                 <span className="purple"> const </span>
                 <span className="yellow"> date </span> = <span> new </span>
-                <span className="green"> Date();</span>
+                <span className="green"> Date( );</span>
               </p>
-              <p className="yellow"> &#125; </p>
+              <p> &#125; </p>
               <p className="oneTab">
                 <span className="purple"> return </span>
-                <span className="green"> FE40Letter(); </span>
+                <span className="green"> FE40Letter( ); </span>
               </p>
             </Input_Body>
           </Input_Wrap>
@@ -174,6 +182,7 @@ const Content_Container = styled.div`
   height: 100vh;
   width: 100vw;
   min-height: 600px;
+  color: white;
 `;
 const Top_Content = styled.div`
   display: flex;
@@ -210,17 +219,17 @@ const Problem_info = styled.div`
   padding: 20px;
   border-right: 2px solid rgb(23, 29, 41);
   width: 40%;
-  color: white;
   line-height: 150%;
   overflow: scroll;
+  color: #a5b6c3;
   ::-webkit-scrollbar {
     display: none;
   }
-  & .marginP {
-    margin-left: 15px;
-  }
   & .expln {
     margin: 10px 10px 10px 3px;
+  }
+  & .white {
+    color: white;
   }
 `;
 const Result = styled.div`
@@ -247,7 +256,7 @@ const Input_Body = styled.div`
   }
 
   .green {
-    color: rgb(55, 135, 61);
+    color: #699bd3;
   }
 
   .oneTab {
@@ -276,6 +285,7 @@ const Input = styled.input`
   width: ${({ width }) => width || '150px'};
   height: ${({ height }) => height || '25px'};
   background: rgb(30, 42, 54);
+  color: white;
 
   ::placeholder {
     color: rgb(229, 207, 47);
@@ -286,25 +296,28 @@ const Input = styled.input`
 const Content = styled.p`
   display: flex;
   align-items: start;
-
+  & .marginL {
+    margin-left: 5px;
+  }
   > span {
     margin-right: 4px;
-  }
-  > textarea {
-    padding: 0px 10px 10px 10px;
-    border-style: none;
-    background: rgb(17, 21, 25);
-    width: 600px;
-    height: 300px;
-    border-radius: 10px;
-    ::placeholder {
-      color: rgb(229, 207, 47);
-    }
   }
 `;
 const ExplnImg = styled(Image)`
   :hover {
     animation: ease-in reverse;
+  }
+`;
+const InputTextArea = styled.input`
+  padding: 0px 10px 10px 10px;
+  border-style: none;
+  width: 600px;
+  height: 250px;
+  background: rgb(30, 42, 54);
+  color: white;
+  ::placeholder {
+    color: rgb(229, 207, 47);
+    text-align: start;
   }
 `;
 export default Progamers_Main;

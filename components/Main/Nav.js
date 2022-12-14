@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 
 const StyledButton = styled.button`
   margin: 0 10px;
-  width: 5rem;
+  width: 7rem;
   height: 2.3rem;
   font-weight: 900;
   color: white;

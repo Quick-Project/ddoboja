@@ -17,6 +17,7 @@ const MainArea = styled.div`
   overflow: hidden;
   padding: 200px 0px 0 0px;
   position: relative;
+  background: #fff;
 `;
 
 const MainImg = styled(Image)`

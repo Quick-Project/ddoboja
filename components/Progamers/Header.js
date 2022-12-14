@@ -2,13 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import progamersLogo from '../../icon/progamersLogo.png';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Header = () => {
   return (
     <>
       <Header_Container>
         <Logo>
-          <Image src={progamersLogo} alt="logo" />
+          <Link href={'/'}>
+            <Image src={progamersLogo} alt="logo" />
+          </Link>
         </Logo>
         <Description>
           <span> 고마웠던 </span>
