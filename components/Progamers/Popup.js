@@ -8,7 +8,7 @@ import Progammers from '../../icon/progammers.png';
 import useWordCheck from '../hook/useWordCheck';
 import useGetTyping from '../hook/useGetTyping';
 import { errorMsg } from '../errorMsg';
-import Link from 'next/Link';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 const StyledDiv = styled.div`
