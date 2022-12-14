@@ -12,7 +12,6 @@ const Progamers_Footer = () => {
   return (
     <>
       <Footer_Container>
-        <Button> 테마 변경 </Button>
         <Button onClick={onClick}> 전송하기 </Button>
         {popup && <Popup open={popup} setPopup={setPopup} />}
       </Footer_Container>
@@ -27,20 +26,21 @@ const Footer_Container = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
+  background: rgb(30, 42, 54);
 `;
 
 const Button = styled.div`
-  font-size: 14px;
+  font-size: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #206dff;
   border-radius: 5px;
-  width: 70px;
+  width: 100px;
   height: 35px;
-  margin-right: 10px;
+  margin-right: 20px;
+  color: white;
   cursor: pointer;
-
   :hover {
     background: rgb(0, 73, 242);
   }
