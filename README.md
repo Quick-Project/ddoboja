@@ -99,4 +99,109 @@ feature 브랜치는 보통 각 개인의 로컬 리포지토리에서 만들고
 
 회사에 따라서 커밋 기록을 남기는 일반적인 rebase-and-merge, 기능마다 깔끔하게 커밋을 남기기를 원해서 커밋 기록을 정리하는 squash-and-merge등 다양한 merge 전략이 있습니다. 이번 Pre-Project에서는 squash-merge 전략을 사용해보고, Main-Project에서는 팀원간 상의를 통해 merge 전략을 세우길 바랍니다. 많은 경우 feature 브랜치는 머지하고 나서 삭제하지만, 복원해야 할 필요성이 있는 경우는 남겨두기도 합니다.
 
+<hr>
 
+## 📫 프로젝트 소개
+
+- 코드스테이츠를 수료하면서 고마웠던 동기에게 응원의 메세지를 전달하고 싶은 FE40기!
+- 코드스테이츠를 수료한 동기들에게 응원의 메세지를 전달하고 싶은 FE40기!
+- 6개월 간 고생한 동기들의 추억을 회상할 수 있는 UI가 곳곳에 숨어 있습니다!
+- 6개월 동안 고생한 동기들을 위해 메세지를 보낼 수 있는 서비스  `💌GoodFE` 를 이용해보세요!  
+<br>
+  
+## 🍸 서비스 소개
+<br>
+
+### **🏠 시작 페이지**  
+
+<div style ="display:flex;align-items:center;flex-direction:column">
+<li style="margin-bottom:1rem; align-self:start;">
+아이콘을 통해 원하는 서비스로 이동할 수 있습니다. 
+<div>(Maekjoo : 개인 편지 작성 페이지, Progamers : FE40기 롤링페이퍼 작성 페이지,Vsc : 롤링페이퍼 뷰어)</div>
+</li>
+
+<img src="https://user-images.githubusercontent.com/104412610/208294392-c1bdca38-2d2d-48fb-b281-9088e9f2ef62.gif" style="width:400px; margin-bottom : 1rem;">
+<li style="margin-bottom:1rem; align-self:start;">
+우측 상단의 버튼을 이용하면 간편하게 github oauth 로그인-로그아웃을 할 수 있습니다.
+<div>(CodeStates에 등록된 깃허브 아이디로만 해당 서비스를 이용할 수 있습니다.)</div>
+</li>
+<div>
+<img src="https://user-images.githubusercontent.com/104412610/208294303-f430d56a-5845-4f46-9ec6-61e248ce7bba.gif" style="width:300px; margin-bottom : 1rem; margin-right:1rem;">
+<img src="https://user-images.githubusercontent.com/104412610/208294304-a555ad86-973a-4faf-b3d0-c5aa9dc04722.gif" style="width:300px; margin-bottom : 1rem;">
+</div>
+
+<li style="margin-bottom:1rem; align-self:start;">
+Search bar를 이용하여 본인에게 온 편지를 조회할 수 있습니다. 검색 결과 페이지로 이동됩니다. 
+<div>(다른 이용자의 개인 편지는 조회할 수 없습니다.)</div>
+</li>
+<div>
+<img src="https://user-images.githubusercontent.com/104412610/208294319-abc974bf-dc4d-4c92-9f47-c7f58540d61f.gif" style="width:400px; margin-bottom : 1rem; margin-right:1rem;">
+</div>
+</div>
+
+### **💌 개인 편지 작성 페이지(Maekjoo)**
+
+<div style ="display:flex;align-items:center;flex-direction:column">
+<div style="margin-bottom:1rem; align-self:start">
+<li>FE 40기 동기에게 응원의 메세지를 작성할 수 있는 페이지입니다. FE 40기 동기에게만 편지를 작성할 수 있습니다.
+</li>
+</div>
+<img src="https://user-images.githubusercontent.com/104412610/208294305-0e4deb43-096c-4551-a4f6-e055dd0ab23d.gif" style="width:500px; margin-bottom:1rem;">
+<div style="margin-bottom:1rem; align-self:start">
+<li>편지가 정상적으로 전달되었으면 개인 편지 조회페이지와 메인페이지로 이동할 수 있습니다.
+</li>
+</div>
+<div>
+<img src="https://user-images.githubusercontent.com/104412610/208294309-a37822b3-a6ce-4e32-b007-ac0af084688f.gif" style="width:300px; margin-bottom : 1rem; margin-right:1rem;">
+<img src="https://user-images.githubusercontent.com/104412610/208294307-4daa963e-41c2-4571-9ab5-017429a7965c.gif" style="width:300px; margin-bottom : 1rem;">
+</div>
+</div>
+
+### **💌 개인 편지 조회 페이지**
+
+<div style ="display:flex;align-items:center;flex-direction:column">
+<div style="margin-bottom:1rem; align-self:start">
+<li>Search bar를 이용하여 본인에게 온 편지를 조회할 수 있습니다.</li>
+<li>오른쪽 패널을 이용하여 페이지를 이동할 수 있습니다.</li>
+</div>
+<img src="https://user-images.githubusercontent.com/104412610/208294317-a0afd1fe-107a-40e0-b612-14e3e05c2b05.gif" style="width:500px; margin-bottom:1rem;">
+
+</div>
+
+### **📬 롤링페이퍼 작성 페이지(Progamers)**
+<div style ="display:flex;align-items:center;flex-direction:column">
+<div style="margin-bottom:1rem; align-self:start">
+<li>6개월동안 과정을 함께 수료했던 FE 40기 동기들에게 응원의 메세지를 작성할 수 있는 페이지입니다. 
+</li>
+</div>
+<img src="https://user-images.githubusercontent.com/104412610/208294313-91f15e86-0f9b-49a0-afee-27a4fc9d2321.gif" style="width:500px; margin-bottom:1rem;">
+<div style="margin-bottom:1rem; align-self:start">
+<li>롤링페이퍼가 정상적으로 작성되었으면 롤핑페이퍼 조회페이지(vsc)와 메인페이지로 이동할 수 있습니다.
+</li>
+</div>
+<div>
+<img src="https://user-images.githubusercontent.com/104412610/208294316-4cc5c979-ba35-4f72-89af-94c871a36507.gif" style="width:300px; margin-bottom : 1rem; margin-right:1rem;">
+<img src="https://user-images.githubusercontent.com/104412610/208295670-6582decf-1849-4449-88a8-718213ff0dc6.gif" style="width:300px; margin-bottom : 1rem;">
+</div>
+</div>
+
+### **😎 롤링 페이퍼 조회 페이지(Vscode)**
+
+<div style ="display:flex;align-items:center;flex-direction:column">
+<div style="margin-bottom:1rem; align-self:start">
+<li>FE 40기 동기들이 남긴 롤링페이퍼를 확인할 수 있습니다.</li>
+</div>
+<img src="https://user-images.githubusercontent.com/104412610/208294318-14e92588-9b9e-40b9-a6a7-e66543af49f7.gif" style="width:500px; margin-bottom : 1rem;">
+</div>
+
+### **🚫 편지 작성 시 유의 사항**
+<div style="margin-bottom:1rem; align-self:start">
+<li>CodeStates FE 40기 동기에게만 편지 작성이 가능합니다.</li>
+<li>CodeStates에 작성된 Github 아이디로 서비스를 이용해야 정상적인 편지 전달이 가능합니다.</li>
+<li>편지 작성 시 작성 항목이 비어있다면 편지를 정상적으로 전달할 수 없습니다.</li>
+</div>
+<div>
+<img src="https://user-images.githubusercontent.com/104412610/208294292-0a39928c-5226-4bd8-9aa4-2efae0ff4f40.gif" style="width:300px; margin-bottom : 1rem; margin-right:1rem;">
+<img src="https://user-images.githubusercontent.com/104412610/208294301-467a097d-fa06-4222-a2e6-1e5b1ce8c57f.gif" style="width:300px; margin-bottom : 1rem;">
+</div>
+</div>
