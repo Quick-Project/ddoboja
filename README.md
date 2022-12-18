@@ -109,9 +109,7 @@ feature 브랜치는 보통 각 개인의 로컬 리포지토리에서 만들고
 - 6개월 동안 고생한 동기들을 위해 메세지를 보낼 수 있는 서비스  `💌GoodFE` 를 이용해보세요!  
 <br>
   
-## 🍸 서비스 소개
-<br>
-
+## 📮 서비스 소개
 ### **🏠 시작 페이지**  
 
 <div style ="display:flex;align-items:center;flex-direction:column">
@@ -185,7 +183,7 @@ Search bar를 이용하여 본인에게 온 편지를 조회할 수 있습니다
 </div>
 </div>
 
-### **😎 롤링 페이퍼 조회 페이지(Vscode)**
+### **😎 롤링 페이퍼 조회 페이지(VsCodestates)**
 
 <div style ="display:flex;align-items:center;flex-direction:column">
 <div style="margin-bottom:1rem; align-self:start">
