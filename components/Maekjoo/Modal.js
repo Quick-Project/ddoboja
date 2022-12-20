@@ -145,7 +145,8 @@ const Modal = ({ modalOpen, setModalOpen }) => {
             <>
               <ModalText>
                 <StyledP>제출이 완료되었습니다. </StyledP>
-                <StyledP>편지는 수료 후 일괄 전송 됩니다.</StyledP>
+                
+                <StyledP>검색창을 이용하여 개인편지를 확인할 수 있습니다.</StyledP>
               </ModalText>
               <Link href={'/'}>
                 <StyledButton>메인 화면 가기</StyledButton>
