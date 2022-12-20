@@ -15,6 +15,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: row;
   background-color: #1e1e1e;
+  overflow: hidden;
 `;
 
 const VscContain = styled.div`
