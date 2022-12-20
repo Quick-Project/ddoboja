@@ -12,7 +12,7 @@ const StatusLine = styled.div`
   overflow: hidden;
   position: absolute;
   bottom: 0px;
-  width: 80%;
+  width: 100%;
 `;
 
 const LineKeeper = styled.div`
