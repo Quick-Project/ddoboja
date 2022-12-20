@@ -33,7 +33,7 @@ const NewLetter = () => {
 
   useEffect(() => {
     axios.get('api/letter/FE40').then((res) => {
-      setData(()=>[...res.data].sort((a,b)=>b.id-a.id));
+      setData(()=>{return [...[...res.data].sort((a,b)=>b.id-a.id)]});
     });
   }, []);
 
