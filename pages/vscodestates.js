@@ -24,6 +24,7 @@ const VscContain = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100vh;
+  overflow: auto;
 `;
 const CheckContain = styled.div`
   display: flex;
@@ -36,6 +37,7 @@ const CheckContain = styled.div`
 
 const TextBox = styled.div`
   margin: -100px 0 20px 0;
+  width: 1000px;
 `;
 
 const VscWelcomeTxt = styled.h1`
