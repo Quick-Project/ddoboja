@@ -23,7 +23,7 @@ const LetterContainer = styled.div`
   margin-bottom: 0.5rem;
   color: black;
   @media (prefers-color-scheme: dark) {
-    color: white;
+    color: black;
   }
 `;
 
