@@ -3,6 +3,8 @@ import styled, { css, keyframes } from 'styled-components';
 import Image from 'next/image';
 import Wake from '../../icon/Wake.png';
 import Sleep from '../../icon/Sleep.png';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { pageMode } from '../../states';
 
 const Ment = styled.div`
   font-size: 15px;
@@ -40,35 +42,35 @@ const Circle = styled.button`
 `;
 const Img = styled(Image)``;
 
-export default function Toggle({ mode, setMode }) {
+export default function Toggle() {
   // 토글을 전역상태의 모드로 바꾸고, 토글을 클릭 시 전역이 바뀌고 토글(째깍이) 위치가 바뀌어야 함.
-  const [ment, setMent] = useState('');
-  const [bool, setBool] = useState(true);
-  useEffect(() => {
-    if (mode.mode === 'dark') {
-      setMent('일어나... 버그 잡아야지');
-      setBool(true);
-    } else {
-      setMent('불 좀 꺼줄래? 내 버그 좀 보게');
-      setBool(false);
-    }
-  }, [mode]);
+  const [saveMode, setSaveMode] = useRecoilState(pageMode);
+  const [mode, setMode] = useState({ mode: 'light' });
+
+  const toggleMent =
+    mode.mode === 'dark'
+      ? '일어나... 버그 잡아야지'
+      : '불 좀 꺼줄래? 내 버그 좀 보게';
+
+  const toggleState = mode.mode === 'dark' ? true : false;
 
   const changeMode = () => {
-    setMode((prev) => {
-      if (prev.mode === 'dark') {
-        return { mode: 'light' };
-      } else {
-        return { mode: 'dark' };
-      }
-    });
+    let stateChanged = toggleState ? { mode: 'light' } : { mode: 'dark' };
+    setMode(stateChanged);
+    setSaveMode(stateChanged);
   };
+
+  useEffect(() => {
+    if (saveMode.mode) {
+      setMode({ ...saveMode });
+    }
+  }, []);
 
   return (
     <ToggleBtn onClick={changeMode}>
-      <Ment>{ment}</Ment>
+      <Ment>{toggleMent}</Ment>
 
-      <Circle toggle={bool}>
+      <Circle toggle={toggleState}>
         <Img
           src={mode.mode === 'dark' ? Sleep : Wake}
           width="46px"

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
+import { pageMode } from '../../states';
 import Toggle from './Toggle';
 
 const Title = styled.h4`
@@ -32,29 +34,39 @@ const BallonDiv = styled.div`
     right: 30px;
   }
 `;
-export default function Ballon({ bottom, right, show, mode, setMode }) {
-  const [ment, setMent] = useState('');
-  const [ment2, setMent2] = useState('');
-  const [ment3, setMent3] = useState('');
+export default function Ballon({ bottom, right, show }) {
+  const mode = useRecoilValue(pageMode);
+  const MENT = {
+    dark: [
+      '버그 픽스하다 기절한 째깍이입니다.',
+      '째깍이는 지금 기절 중',
+      '↑라이트모드 켜기',
+    ],
+    light: [
+      '하지만 버그가 터진 걸 모르는 째깍이',
+      '째깍이는 지금 배포 홍보 중',
+      '↑다크모드 켜기',
+    ],
+  };
+
+  const [ment, setMent] = useState([...MENT.dark]);
+
   useEffect(() => {
     if (mode.mode === 'dark') {
-      setMent('버그 픽스하다 기절한 째깍이입니다.');
-      setMent2('째깍이는 지금 기절 중');
-      setMent3('↑라이트모드 켜기');
+      setMent([...MENT.dark]);
     } else {
-      setMent('하지만 버그가 터진 걸 모르는 째깍이');
-      setMent2('째깍이는 지금 배포 홍보 중');
-      setMent3('↑다크모드 켜기');
+      setMent([...MENT.light]);
     }
   }, [mode]);
+
   return (
     <>
       {
         <BallonDiv bottom={bottom} right={right} show={show}>
-          <Title>{ment2}</Title>
-          <div>{ment}</div>
-          <Toggle mode={mode} setMode={setMode} />
-          <div>{ment3}</div>
+          <Title>{ment[1]}</Title>
+          <div>{ment[0]}</div>
+          <Toggle />
+          <div>{ment[2]}</div>
         </BallonDiv>
       }
     </>
