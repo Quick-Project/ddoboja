@@ -3,8 +3,7 @@ import { useRecoilState } from 'recoil';
 import { InputValue } from '../../states';
 
 export default function useGetTyping() {
-  const [inputValue, setInputValue] = useRecoilState(InputValue);
-  const [typingData, setTypingData] = useState({ ...inputValue });
+  const [typingData, setTypingData] = useRecoilState(InputValue);
 
   const onValue = (e) => {
     setTypingData({
@@ -12,10 +11,6 @@ export default function useGetTyping() {
       [e.target.name]: e.target.value,
     });
   };
-
-  useEffect(() => {
-    setInputValue({ ...typingData });
-  }, [typingData]);
 
   return [typingData, onValue];
 }

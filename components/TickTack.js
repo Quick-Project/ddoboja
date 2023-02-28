@@ -7,7 +7,7 @@ import VeryAngry from '../icon/VeryAngry.png';
 import styled, { css, keyframes } from 'styled-components';
 import Image from 'next/image';
 import Ballon from './TickTackModal/Ballon';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { pageMode } from '../states';
 const angryMode = keyframes`
    0%{
@@ -58,13 +58,11 @@ const TickTackContainer = styled.div`
 export default function TickTack() {
   const [cilckCount, setClickCount] = useState(1);
   const [modalState, setModalState] = useState(false);
-  // const [mode, setMode] = useState('dark');
-  const [pageMode1, setPageMode1] = useRecoilState(pageMode);
-  const [mode, setMode] = useState({ ...pageMode1 });
+
+  const mode = useRecoilValue(pageMode);
 
   useEffect(() => {
     setClickCount(1);
-    setPageMode1({ ...mode });
   }, [mode]);
 
   // 다크 모드 로직
@@ -145,8 +143,6 @@ export default function TickTack() {
         right={cilckCount >= 5 ? '50px' : '40px'}
         bottom={cilckCount >= 5 ? '230px' : '210px'}
         show={modalState ? 'flex' : 'none'}
-        mode={mode}
-        setMode={setMode}
       />
       <TickTackContainer anime={cilckCount === 10 ? true : false}>
         {mode.mode === 'dark' ? darkModeTickTack() : LightModeTickTack()}

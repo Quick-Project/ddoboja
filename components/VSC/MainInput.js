@@ -39,6 +39,7 @@ const WorkContainer = styled.div`
   padding-top: 18px;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 `;
 const CodeContainer = styled.div`
   padding-left: 5px;
@@ -63,7 +64,7 @@ const UserInput = styled.div`
   width: ${({ width }) => width};
 `;
 const UserTextArea = styled.div`
-  width: 700px;
+  width: 1000px;
   margin-bottom: ${({ mb }) => mb || '3px'};
   border: 0;
   display: flex;

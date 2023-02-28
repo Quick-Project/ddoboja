@@ -13,7 +13,6 @@ const StatusLine = styled.div`
   position: absolute;
   bottom: 0px;
   width: 100%;
-  padding-right: 250px;
 `;
 
 const LineKeeper = styled.div`
@@ -79,7 +78,7 @@ const BottomLine = () => {
     <StatusLine>
       <LineKeeper bot={bot} boolean={boolean}>
         <ProductionInformation>제작 : 또보자(Ddoboja)</ProductionInformation>
-        <ProductionInformation>배포일 : 2022년 12월 13일</ProductionInformation>
+        <ProductionInformation>배포일 : 2022년 12월 20일</ProductionInformation>
         <ProductionInformation>
           팀원 : 헬리 앤디 피터 백준 승새 부기
         </ProductionInformation>

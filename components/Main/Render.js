@@ -5,7 +5,9 @@ import Search from '.././Search';
 import Link from 'next/link';
 import Ddoboja from '../../icon/Ddoboja.png';
 import GoodFe from '../../icon/GoodFe.png';
-
+import Vsc from '../../icon/Vsc.png';
+import programer from '../../icon/programers.png';
+import beak from '../../icon/beak.png';
 const MainArea = styled.div`
   display: flex;
   flex-direction: column;
@@ -29,20 +31,34 @@ const MainImg = styled(Image)`
 `;
 
 const MainButton = styled.button`
-  display: block;
+  display: flex;
   font-size: 1em;
   margin: 1em;
-  padding: 1em;
+  padding: 0.4em;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  border: 1px solid gray;
   cursor: pointer;
+  border: 1px solid white;
+  box-shadow: 0 0 2.5px #333;
+  :active {
+    box-shadow: 0 0 2.5px #333 inset;
+  }
 `;
 
 const MainDiv = styled.div`
   display: flex;
   justify-content: space-around;
 `;
-
+const BtnImg = styled(Image)`
+  width: 30px;
+  height: 30px;
+  border-radius: 25%;
+  text-align: center;
+`;
 const Render = () => {
   const [isHovering, setIsHovering] = useState(1);
 
@@ -57,13 +73,19 @@ const Render = () => {
       <Search />
       <MainDiv>
         <Link href={'/maekjoo'}>
-          <MainButton>M</MainButton>
+          <MainButton>
+            <BtnImg src={beak} alt="beak" />
+          </MainButton>
         </Link>
         <Link href={'/progamers'}>
-          <MainButton>P</MainButton>
+          <MainButton>
+            <BtnImg src={programer} alt="programer" />
+          </MainButton>
         </Link>
         <Link href={'/vscodestates'}>
-          <MainButton>V</MainButton>
+          <MainButton>
+            <BtnImg src={Vsc} alt="Vsc" />
+          </MainButton>
         </Link>
       </MainDiv>
     </MainArea>
