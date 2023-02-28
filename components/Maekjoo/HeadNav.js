@@ -22,9 +22,9 @@ const HeadContainer = styled.li`
 `;
 
 const Logo = styled(Image)`
-  :hover {
+  /* :hover {
     cursor: pointer;
-  }
+  } */
 `;
 
 const HeadTextStyled = styled.a`
@@ -68,16 +68,17 @@ const HeadText = () => {
   return (
     <HeadContainer>
       <div>
-        <Link href="https://quick-project.github.io/BMTI-DLink/">
+        <a href="https://quick-project.github.io/BMTI-DLink/">
           <Logo
             src={state.mode === 'light' ? MaekjooLight : MaekjooDark}
             height={'50px'}
             width={'200px'}
           />
-        </Link>
-        <Link href="https://github.com/Quick-Project/BMTI-DLink">
+        </a>
+
+        <a href="https://github.com/Quick-Project/BMTI-DLink">
           <Logo src={Arrow} height={'50px'} width={'50px'} mr={'120px'} />
-        </Link>
+        </a>
       </div>
       {menu.map((list, idx) => {
         if (idx === 0) {
